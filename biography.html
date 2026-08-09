@@ -1,0 +1,1468 @@
+<!DOCTYPE html><html lang="en"><head>
+    <link rel="preload" as="image" href="https://assets-v2.codedesign.ai/storage/v1/object/public/codedesign-templates-assets/template-asset-51714dbb" fetchpriority="high">
+    <style id="styleguide-variables">
+        :root {
+            --vId-color-token-a: #456CC6;
+            --vId-color-token-b: #EEC151;
+            --vId-color-token-c: #2C3E91;
+            --vId-color-token-d: #fff;
+            --vId-23e90005-9d61-4323-8f54-454b206b069a: #111;
+            --vId-font-token-a: Manrope;
+            --vId-font-token-b: "Roboto Slab";
+            --vId-5b8c3e21-dd6f-4d22-88c3-365942c990b6: #4a4a4aff;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <title>Professor Profile Website - Biography</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+
+    <!-- Preconnect to external domains for faster resource loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link rel="preconnect" href="https://use.fontawesome.com" crossorigin="">
+
+    <!-- Font Awesome - Non-render-blocking with media="print" onload pattern -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.7.2/css/all.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.7.2/css/all.css" />
+    </noscript>
+
+    <!-- CSS links will be added dynamically per page during export -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto%20Slab:wght@400&amp;family=Manrope:wght@300;400;500;600;700;800&amp;family=Inter:wght@400&amp;display=swap" rel="stylesheet" media="print" onload="this.media='all'" data-optimized-fonts="true">
+    <noscript>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto%20Slab:wght@400&family=Manrope:wght@300;400;500;600;700;800&family=Inter:wght@400&display=swap" rel="stylesheet">
+    </noscript>
+    <meta property="og:title" content="Professor Profile Website - Biography">
+    <meta property="twitter:title" content="Professor Profile Website - Biography">
+    <style id="humble-scroll-css">
+        /* 
+ Credits to
+ GitHub Repository: https://github.com/MathiasOxholm/humbleScroll
+ User: MathiasOxholm
+
+ */
+        :root {
+            --cdhs-delay: 0ms;
+            --cdhs-easing: var(--cdhs-ease-out);
+            --cdhs-duration: 600ms;
+            --cdhs-ease-in: cubic-bezier(0.4, 0, 1, 1);
+            --cdhs-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+            --cdhs-ease-out: cubic-bezier(0, 0, 0.2, 1);
+            --cdhs-ease-out-back: cubic-bezier(0.34, 1.56, 0.64, 1);
+            --cdhs-opacity: 1;
+            --cdhs-translate-y: 0;
+            --cdhs-translate-x: 0;
+            --cdhs-scale: 1;
+            --cdhs-rotate: 0deg;
+            --cdhs-perspective: 0;
+            --cdhs-rotate-x: 0deg;
+            --cdhs-rotate-y: 0deg;
+            --cdhs-skew-x: 0deg;
+            --cdhs-skew-y: 0deg;
+            --cdhs-translate-ratio: 1;
+            --cdhs-scale-ratio: 0.2;
+            --cdhs-duration-ratio: 1;
+            --cdhs-translate-x-amount: 2rem;
+            --cdhs-translate-y-amount: 3rem;
+            --cdhs-flip-x-amount: 100deg;
+            --cdhs-flip-y-amount: -100deg;
+            --cdhs-perspective-amount: 2000px;
+            --cdhs-stagger-amount: 100ms;
+            --cdhs-skew-amount: 20deg;
+            --cdhs-reveal-amount: 100%;
+            --cdhs-blur: 0;
+            --cdhs-blur-amount: 5px
+        }
+
+        [data-cdhs*=ease-in] {
+            --cdhs-easing: var(--cdhs-ease-in)
+        }
+
+        [data-cdhs*=ease-out] {
+            --cdhs-easing: var(--cdhs-ease-out)
+        }
+
+        [data-cdhs*=ease-in-out] {
+            --cdhs-easing: var(--cdhs-ease-in-out)
+        }
+
+        [data-cdhs*=ease-out-back] {
+            --cdhs-easing: var(--cdhs-ease-out-back)
+        }
+
+        [data-cdhs*=sm] {
+            --cdhs-translate-ratio: 0.5
+        }
+
+        [data-cdhs*=md] {
+            --cdhs-translate-ratio: 0.75
+        }
+
+        [data-cdhs*=lg] {
+            --cdhs-translate-ratio: 1.5
+        }
+
+        [data-cdhs*=xl] {
+            --cdhs-translate-ratio: 2
+        }
+
+        [data-cdhs*="2xl"] {
+            --cdhs-translate-ratio: 3
+        }
+
+        [data-cdhs~=extra-slow] {
+            --cdhs-duration-ratio: 3
+        }
+
+        [data-cdhs~=slow] {
+            --cdhs-duration-ratio: 1.5
+        }
+
+        [data-cdhs~=fast] {
+            --cdhs-duration-ratio: 0.75
+        }
+
+        [data-cdhs~=extra-fast] {
+            --cdhs-duration-ratio: 0.5
+        }
+
+        [data-cdhs*=fade],
+        [data-cdhs*=zoom] {
+            --cdhs-opacity: 0
+        }
+
+        [data-cdhs*=zoom-in] {
+            --cdhs-scale: calc(1 + var(--cdhs-scale-ratio))
+        }
+
+        [data-cdhs*=zoom-out] {
+            --cdhs-scale: calc(1 - var(--cdhs-scale-ratio))
+        }
+
+        [data-cdhs~=up] {
+            --cdhs-translate-y: calc(var(--cdhs-translate-y-amount)*var(--cdhs-translate-ratio))
+        }
+
+        [data-cdhs~=down] {
+            --cdhs-translate-y: calc(0px - var(--cdhs-translate-y-amount)*var(--cdhs-translate-ratio))
+        }
+
+        [data-cdhs~=left] {
+            --cdhs-translate-x: calc(var(--cdhs-translate-x-amount)*var(--cdhs-translate-ratio))
+        }
+
+        [data-cdhs~=right] {
+            --cdhs-translate-x: calc(0px - var(--cdhs-translate-x-amount)*var(--cdhs-translate-ratio))
+        }
+
+        [data-cdhs*=flip] {
+            --cdhs-perspective: var(--cdhs-perspective-amount);
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden
+        }
+
+        [data-cdhs*=flip-up] {
+            --cdhs-rotate-x: calc(0deg - var(--cdhs-flip-x-amount))
+        }
+
+        [data-cdhs*=flip-down] {
+            --cdhs-rotate-x: var(--cdhs-flip-x-amount)
+        }
+
+        [data-cdhs*=flip-left] {
+            --cdhs-rotate-y: calc(0deg - var(--cdhs-flip-y-amount))
+        }
+
+        [data-cdhs*=flip-right] {
+            --cdhs-rotate-y: var(--cdhs-flip-y-amount)
+        }
+
+        [data-cdhs*=blur] {
+            --cdhs-blur: var(--cdhs-blur-amount)
+        }
+
+        [data-cdhs*=skew-up] {
+            --cdhs-skew-y: var(--cdhs-skew-amount)
+        }
+
+        [data-cdhs*=skew-down] {
+            --cdhs-skew-y: calc(0deg - var(--cdhs-skew-amount))
+        }
+
+        [data-cdhs*=skew-right] {
+            --cdhs-skew-x: var(--cdhs-skew-amount)
+        }
+
+        [data-cdhs*=skew-left] {
+            --cdhs-skew-x: calc(0deg - var(--cdhs-skew-amount))
+        }
+
+        [data-cdhs*=reveal] {
+            overflow: hidden
+        }
+
+        [data-cdhs*=reveal-up] * {
+            --cdhs-translate-y: var(--cdhs-reveal-amount)
+        }
+
+        [data-cdhs*=reveal-down] {
+            --cdhs-translate-y: calc(0px - var(--cdhs-reveal-amount))
+        }
+
+        [data-cdhs*=reveal-right] {
+            --cdhs-translate-x: calc(0px - var(--cdhs-reveal-amount))
+        }
+
+        [data-cdhs*=reveal-left] {
+            --cdhs-translate-x: var(--cdhs-reveal-amount)
+        }
+
+        @media (prefers-reduced-motion:no-preference) {
+            [data-cdhs] {
+                filter: blur(var(--cdhs-blur));
+                opacity: var(--cdhs-opacity);
+                transform: translate3d(var(--cdhs-translate-x), var(--cdhs-translate-y), 0) scale(var(--cdhs-scale)) rotate(var(--cdhs-rotate)) perspective(var(--cdhs-perspective)) rotateX(var(--cdhs-rotate-x)) rotateY(var(--cdhs-rotate-y)) skew(var(--cdhs-skew-x), var(--cdhs-skew-y));
+                transition-delay: var(--cdhs-delay);
+                transition-duration: calc(var(--cdhs-duration)*var(--cdhs-duration-ratio));
+                transition-property: transform, opacity, filter;
+                transition-timing-function: var(--cdhs-easing)
+            }
+
+
+            [data-cdhs].cdhs-inview {
+                --cdhs-opacity: 1;
+                --cdhs-translate-y: 0;
+                --cdhs-translate-x: 0;
+                --cdhs-scale: 1;
+                --cdhs-rotate: 0deg;
+                --cdhs-rotate-x: 0deg;
+                --cdhs-rotate-y: 0deg;
+                --cdhs-skew-x: 0deg;
+                --cdhs-skew-y: 0deg;
+                --cdhs-blur: 0;
+                /* pointer-events: auto */
+            }
+        }
+
+        @media (max-width:768px) {
+            body [data-cdhs*="phone:zoom-in"] {
+                --cdhs-scale: calc(1 + var(--cdhs-scale-ratio))
+            }
+
+            body [data-cdhs*="phone:zoom-out"] {
+                --cdhs-scale: calc(1 - var(--cdhs-scale-ratio))
+            }
+
+            body [data-cdhs*="phone:up"] {
+                --cdhs-translate-y: calc(var(--cdhs-translate-y-amount)*var(--cdhs-translate-ratio))
+            }
+
+            body [data-cdhs*="phone:down"] {
+                --cdhs-translate-y: calc(0px - var(--cdhs-translate-y-amount)*var(--cdhs-translate-ratio))
+            }
+
+            body [data-cdhs*="phone:left"] {
+                --cdhs-translate-x: calc(var(--cdhs-translate-x-amount)*var(--cdhs-translate-ratio))
+            }
+
+            body [data-cdhs*="phone:right"] {
+                --cdhs-translate-x: calc(0px - var(--cdhs-translate-x-amount)*var(--cdhs-translate-ratio))
+            }
+
+            body [data-cdhs*="phone:flip-up"] {
+                --cdhs-rotate-x: calc(0deg - var(--cdhs-flip-x-amount))
+            }
+
+            body [data-cdhs*="phone:flip-down"] {
+                --cdhs-rotate-x: var(--cdhs-flip-x-amount)
+            }
+
+            body [data-cdhs*="phone:flip-left"] {
+                --cdhs-rotate-y: calc(0deg - var(--cdhs-flip-y-amount))
+            }
+
+            body [data-cdhs*="phone:flip-right"] {
+                --cdhs-rotate-y: var(--cdhs-flip-y-amount)
+            }
+
+            body [data-cdhs*="phone:blur"] {
+                --cdhs-blur: var(--cdhs-blur-amount)
+            }
+        }
+
+        @media (min-width:768px) {
+            body [data-cdhs*="tablet:zoom-in"] {
+                --cdhs-scale: calc(1 + var(--cdhs-scale-ratio))
+            }
+
+            body [data-cdhs*="tablet:zoom-out"] {
+                --cdhs-scale: calc(1 - var(--cdhs-scale-ratio))
+            }
+
+            body [data-cdhs*="tablet:up"] {
+                --cdhs-translate-y: calc(var(--cdhs-translate-y-amount)*var(--cdhs-translate-ratio))
+            }
+
+            body [data-cdhs*="tablet:down"] {
+                --cdhs-translate-y: calc(0px - var(--cdhs-translate-y-amount)*var(--cdhs-translate-ratio))
+            }
+
+            body [data-cdhs*="tablet:left"] {
+                --cdhs-translate-x: calc(var(--cdhs-translate-x-amount)*var(--cdhs-translate-ratio))
+            }
+
+            body [data-cdhs*="tablet:right"] {
+                --cdhs-translate-x: calc(0px - var(--cdhs-translate-x-amount)*var(--cdhs-translate-ratio))
+            }
+
+            body [data-cdhs*="tablet:flip-up"] {
+                --cdhs-rotate-x: calc(0deg - var(--cdhs-flip-x-amount))
+            }
+
+            body [data-cdhs*="tablet:flip-down"] {
+                --cdhs-rotate-x: var(--cdhs-flip-x-amount)
+            }
+
+            body [data-cdhs*="tablet:flip-left"] {
+                --cdhs-rotate-y: calc(0deg - var(--cdhs-flip-y-amount))
+            }
+
+            body [data-cdhs*="tablet:flip-right"] {
+                --cdhs-rotate-y: var(--cdhs-flip-y-amount)
+            }
+
+            body [data-cdhs*="tablet:blur"] {
+                --cdhs-blur: var(--cdhs-blur-amount)
+            }
+        }
+
+        @media (min-width:1240px) {
+            body [data-cdhs*="desktop:zoom-in"] {
+                --cdhs-scale: calc(1 + var(--cdhs-scale-ratio))
+            }
+
+            body [data-cdhs*="desktop:zoom-out"] {
+                --cdhs-scale: calc(1 - var(--cdhs-scale-ratio))
+            }
+
+            body [data-cdhs*="desktop:up"] {
+                --cdhs-translate-y: calc(var(--cdhs-translate-y-amount)*var(--cdhs-translate-ratio))
+            }
+
+            body [data-cdhs*="desktop:down"] {
+                --cdhs-translate-y: calc(0px - var(--cdhs-translate-y-amount)*var(--cdhs-translate-ratio))
+            }
+
+            body [data-cdhs*="desktop:left"] {
+                --cdhs-translate-x: calc(var(--cdhs-translate-x-amount)*var(--cdhs-translate-ratio))
+            }
+
+            body [data-cdhs*="desktop:right"] {
+                --cdhs-translate-x: calc(0px - var(--cdhs-translate-x-amount)*var(--cdhs-translate-ratio))
+            }
+
+            body [data-cdhs*="desktop:flip-up"] {
+                --cdhs-rotate-x: calc(0deg - var(--cdhs-flip-x-amount))
+            }
+
+            body [data-cdhs*="desktop:flip-down"] {
+                --cdhs-rotate-x: var(--cdhs-flip-x-amount)
+            }
+
+            body [data-cdhs*="desktop:flip-left"] {
+                --cdhs-rotate-y: calc(0deg - var(--cdhs-flip-y-amount))
+            }
+
+            body [data-cdhs*="desktop:flip-right"] {
+                --cdhs-rotate-y: var(--cdhs-flip-y-amount)
+            }
+
+            body [data-cdhs*="desktop:blur"] {
+                --cdhs-blur: var(--cdhs-blur-amount)
+            }
+        }
+    </style>
+    <link rel="preload" href="site.css" as="style">
+    <link rel="stylesheet" type="text/css" href="site.css">
+    <link rel="preload" href="biography.css" as="style">
+    <link rel="stylesheet" type="text/css" href="biography.css">
+</head>
+
+<body class="_biography_container page-shell">
+    <div class="page-hero">
+        <div class="page-shell__inner">
+            <header class="site-header">
+                <nav class="site-nav">
+    
+                    <!-- 手機版漢堡選單按鈕 -->
+                    <div class="site-nav__toggle">
+                        <div class="site-nav__toggle-icon">
+                            <a href="index.html" class="link" target="_self">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="auto" height="auto" viewBox="0 0 32 32">
+                                    <path fill="#ffffff" d="M3 11v2h26v-2H3zm0 8v2h26v-2H3z"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+    
+                    <!-- 品牌／Logo -->
+                    <span class="site-header__brand">
+                        <a href="index.html" class="link" target="_self">
+                            <p><strong>Professor</strong></p>
+                            <p><strong>Kai-Chiang Wu 吳凱強</strong></p>
+                        </a>
+                    </span>
+    
+                    <!-- 導覽選單（含手機版全螢幕展開） -->
+                    <div class="site-nav__menu">
+                        <div class="site-nav__close">
+                            <div class="site-nav__close-icon">
+                                <svg width="auto" height="auto" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill="#ffffff" d="M17.414 16L24 9.414L22.586 8L16 14.586L9.414 8L8 9.414L14.586 16L8 22.586L9.414 24L16 17.414L22.586 24L24 22.586z"></path>
+                                </svg>
+                            </div>
+                        </div>
+                        <span class="site-nav__link"><a href="index.html" class="link" target="_self">
+                                <p>Home</p>
+                            </a></span>
+                        <span class="site-nav__link"><a href="researchs.html" class="link" target="_self">
+                                <p>Researchs</p>
+                            </a></span>
+                        <span class="site-nav__link"><a href="member.html" class="link" target="_self">
+                                <p>Members</p>
+                            </a></span>
+                        <span class="site-nav__link"><a href="activities.html" class="link" target="_self">
+                                <p>Activities</p>
+                            </a></span>
+                    </div>
+    
+                    <!-- CTA 按鈕 -->
+                    <button class="btn btn-outline">
+                        <a href="form.html" class="link" target="_self">
+                            <p>Contact Me Now </p>
+                        </a>
+                    </button>
+    
+                </nav>
+            </header>
+        </div>
+    
+        <!-- Hero 副標題區塊（原 researchs-e-37 ~ e-41） -->
+        <div data-cdhs="up" class="page-hero__content">
+            <div class="page-hero__intro">
+                <span class="page-hero__eyebrow">
+                    <p>Academic Background and Professional Overview</p>
+                </span>
+                <span class="page-hero__title">
+                    <p>Biography</p>
+                </span>
+                <span class="cd-paragraph-clean page-hero__subtitle">
+                    <p>National Yang Ming Chiao Tung University, </p>
+                    <p>Hsinchu, Taiwan</p>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div data-column="true" class="biography-e-1">
+        <div class="biography-e-9">
+            <div class="biography-e-8">
+                <div class="biography-e-6"> <span class="biography-e-4">
+                        <p>Kai-Chiang Wu</p>
+                    </span><span class="biography-e-5">
+                        <p>Kai-Chiang Wu received the B.S. and M.S. degrees in computer science from National Tsing Hua University (NTHU), Hsinchu, Taiwan, in 2002 and 2004, respectively, and the Ph.D. degree in electrical and computer engineering from Carnegie Mellon University (CMU), Pittsburgh, PA, in 2011. From 2011 to 2013, he was with Intel Corporation, Hillsboro, OR, as a senior software engineer working on the research and development of CAD tools for reliability verification. He is currently an assistant professor in the Department of Computer Science, National Chiao Tung University (NCTU), Hsinchu, Taiwan. His research interests include energy-aware computing, computer-aided design (CAD) for reliability, fault tolerance and error resilience in nanoscale designs, and emerging technologies. He is the principal investigator of a research group, CAD for G(reen)-RE(liable)-A(nd)-T(rustworthy)/GREAT Systems, at NCTU.</p>
+                    </span><span class="biography-e-10">
+                        <p>Dr. Wu was the recipient of a Best Paper Award from IEEE International Conference on Computer Design (ICCD 2008). In 2011, he was the recipient of Liang Ji-Dian Fellowship, which is annually awarded to two selected outstanding Ph.D. students of Chinese heritage in the College of Engineering, Carnegie Mellon University.</p>
+                    </span></div><span class="biography-e-7"> <img src="assets/img-d0115097.png" alt="" fetchpriority="high" loading="eager"> </span>
+            </div>
+        </div>
+        <div class="biography-e-265">
+            <div class="biography-e-266">
+                <div class="biography-e-267"> <i class="fa-solid fa-chart-column biography-e-268"></i>
+                    <div class="biography-e-269"> <span class="biography-e-270">
+                            <p>13</p>
+                        </span><span class="biography-e-271">
+                            <p><strong>Journal Articles</strong></p>
+                        </span></div>
+                </div>
+                <div class="biography-e-282"> <i class="fa-solid fa-book biography-e-283"></i>
+                    <div class="biography-e-284"> <span class="biography-e-285">
+                            <p>34</p>
+                        </span><span class="biography-e-286">
+                            <p><strong>Conference Papers</strong></p>
+                        </span></div>
+                </div>
+                <div class="biography-e-277"> <i class="fa-solid fa-bookmark biography-e-278"></i>
+                    <div class="biography-e-279"> <span class="biography-e-280">
+                            <p>19</p>
+                        </span><span class="biography-e-281">
+                            <p><strong>Talks &amp; Posters</strong></p>
+                        </span></div>
+                </div>
+                <div class="biography-e-272"> <i class="fa-solid fa-medal biography-e-273"></i>
+                    <div class="biography-e-274"> <span class="biography-e-275">
+                            <p>9</p>
+                        </span><span class="biography-e-276">
+                            <p><strong>Awards</strong></p>
+                        </span></div>
+                </div>
+            </div>
+        </div>
+        <div class="biography-e-11">
+            <div class="biography-e-12">
+                <div class="biography-e-13"> <span class="biography-e-25">
+                        <p><strong>Education</strong></p>
+                    </span><span class="biography-e-14"> <img src="assets/template-asset-51cf9bb6.svg" alt="" fetchpriority="high" loading="eager"> </span></div>
+                <div class="biography-e-15">
+                    <div class="biography-e-16"> <span class="cd-paragraph-clean biography-e-17">
+                            <p><strong>Ph.D.</strong></p>
+                        </span><span class="cd-paragraph-clean biography-e-18">
+                            <p><a href="http://www.ece.cmu.edu/" rel="noopener noreferrer" target="_blank">Department of Electrical and Computer Engineering</a>,&nbsp;<a href="http://www.cmu.edu/" rel="noopener noreferrer" target="_blank">Carnegie Mellon University</a>, Pittsburgh, PA, USA</p>
+                            <p> - <a href="http://grad-schools.usnews.rankingsandreviews.com/best-graduate-schools/top-science-schools/computer-science-rankings" rel="noopener noreferrer" target="_blank">Carnegie Mellon University</a>&nbsp;<a href="http://www.ece.nctu.edu.tw/globalization/co_detail.aspx?nid=1" rel="noopener noreferrer" target="_blank">Department of Electrical and Computer Engineering</a></p>
+                        </span></div>
+                    <div class="biography-e-19"> <span class="cd-paragraph-clean biography-e-20">
+                            <p><strong>M.Sc.</strong></p>
+                        </span><span class="cd-paragraph-clean biography-e-21">
+                            <p><a href="http://www.cs.nthu.edu.tw/" rel="noopener noreferrer" target="_blank">Department of Computer Science</a>,&nbsp;<a href="http://www.nthu.edu.tw/" rel="noopener noreferrer" target="_blank">National Tsing Hua University</a>, Hsinchu, Taiwan</p>
+                        </span></div>
+                    <div class="biography-e-22"> <span class="cd-paragraph-clean biography-e-23">
+                            <p><strong>B.Sc.</strong></p>
+                        </span><span class="cd-paragraph-clean biography-e-24">
+                            <p><a href="http://www.cs.nthu.edu.tw/" rel="noopener noreferrer" target="_blank">Department of Computer Science</a>,&nbsp;<a href="http://www.nthu.edu.tw/" rel="noopener noreferrer" target="_blank">National Tsing Hua University</a>, Hsinchu, Taiwan</p>
+                        </span></div>
+                </div>
+            </div>
+        </div>
+        <div class="biography-e-44">
+            <div class="biography-e-43">
+                <div class="biography-e-26"> <span class="biography-e-45">
+                        <p><strong>Experiences</strong></p>
+                    </span></div>
+                <div class="biography-e-42">
+                    <div class="biography-e-31"> <span class="biography-e-27">
+                            <p>2013/08 - Present</p>
+                        </span>
+                        <div class="biography-e-30"> <span class="biography-e-28">
+                                <p>Assistant Professor</p>
+                            </span><span class="biography-e-29">
+                                <p><a href="http://www.cs.nctu.edu.tw/" rel="noopener noreferrer" target="_blank">Department of Computer Science</a>,&nbsp;<a href="http://www.nctu.edu.tw/" rel="noopener noreferrer" target="_blank">National Chiao Tung University</a></p>
+                            </span></div>
+                    </div>
+                    <div class="biography-e-36"> <span class="biography-e-32">
+                            <p>2011/08 - 2013/07</p>
+                        </span>
+                        <div class="biography-e-35"> <span class="biography-e-33">
+                                <p>Senior Software Engineer</p>
+                            </span><span class="biography-e-34">
+                                <p>Design Technology Solutions, Intel Corporation, USA</p>
+                                <p> - Worked on CPU design analysis and convergence/closure, with focus on reliability verification and optimization.</p>
+                                <p> - Worked on identifying root causes of reliability degradation, and cleaning the root causes to ensure the satisfaction of reliability requirements.</p>
+                            </span></div>
+                    </div>
+                    <div class="biography-e-41"> <span class="biography-e-37">
+                            <p>2006/08 - 2011/07</p>
+                        </span>
+                        <div class="biography-e-40"> <span class="biography-e-38">
+                                <p>Research/Teaching Assistant</p>
+                            </span><span class="biography-e-39">
+                                <p><a href="http://www.ece.cmu.edu/~enyac/" rel="noopener noreferrer" target="_blank">Energy Aware Computing (EnyAC) Research Group</a>,&nbsp;<a href="http://www.cmu.edu/" rel="noopener noreferrer" target="_blank">Carnegie Mellon University</a></p>
+                            </span></div>
+                    </div>
+                    <div class="biography-e-51"> <span class="biography-e-52">
+                            <p>2006/02 - 2006/06</p>
+                        </span>
+                        <div class="biography-e-53"> <span class="biography-e-54">
+                                <p>Research Assistant</p>
+                            </span><span class="biography-e-55">
+                                <p><a href="http://www.ecrc.nsysu.edu.tw/" rel="noopener noreferrer" target="_blank">Electronic Commerce Research Center</a>,&nbsp;<a href="http://www.nsysu.edu.tw/" rel="noopener noreferrer" target="_blank">National Sun Yat-Sen University</a></p>
+                            </span></div>
+                    </div>
+                    <div class="biography-e-46"> <span class="biography-e-47">
+                            <p>2004/12 - 2006/01</p>
+                        </span>
+                        <div class="biography-e-48"> <span class="biography-e-49">
+                                <p>Ensign Instructor</p>
+                            </span><span class="biography-e-50">
+                                <p><a href="http://www.ece.cmu.edu/~enyac/" rel="noopener noreferrer" target="_blank">Information Section, Naval Technical School, R.O.C. Navy</a></p>
+                            </span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="biography-e-56">
+            <div class="biography-e-57"> <span class="biography-e-58">
+                    <p><strong>Journal Articles</strong></p>
+                </span><span class="biography-e-59">
+                    <p>Representative Research Contributions</p>
+                </span></div>
+            <div class="biography-e-312">
+                <div id="paperListContainer" class="biography-e-313">
+                    資料載入中...\n</div>
+            <script>
+                const GAS_URL = 'https://script.google.com/macros/s/AKfycbz_vLaoNk5UZGxlf_GrKATmIlPp22jxJ9zc73Upp5nxHeh_dy4T9RvK5S0SIY5_nm75kg/exec';
+
+                async function renderPaperList() {
+                const container = document.getElementById('paperListContainer');
+
+                try {
+                    const response = await fetch(GAS_URL);
+                    const result = await response.json();
+
+                    if (result.status === 'success' && result.data.length > 0) {
+                    const htmlString = result.data.map(item => {
+                        const noteText = item.note ? `[${item.note}] ` : '';
+                        const confText = item.conference ? `<em>${item.conference}</em>` : '';
+                        const pageText = item.pages ? `pp. ${item.pages}` : '';
+                        const dateText = [item.month, item.year].filter(Boolean).join(' ');
+                        
+                        const details = [confText, pageText, dateText].filter(Boolean).join(', ');
+                        const linkText = item.url ? ` <a href="${item.url}" target="_blank" rel="noopener noreferrer">[Link]</a>` : '';
+
+                        return `
+                        <div class="biography-e-317">
+                            <i class="fas fa-circle biography-e-315"><span class="biography-e-314"></span></i>
+                            <span class="cd-paragraph-clean biography-e-316">
+                            <p>${noteText}${item.authors ? item.authors + ', ' : ''}"${item.title || ''}," ${details}.${linkText}</p>
+                            </span>
+                        </div>
+                        `;
+                    }).join('');
+
+                    container.innerHTML = htmlString;
+                    } else {
+                    container.innerHTML = '<p>目前試算表中無資料。</p>';
+                    }
+                } catch (error) {
+                    console.error('抓取失敗：', error);
+                    container.innerHTML = '<p>資料載入失敗，請按 F12 開啟控制台 (Console) 查看詳細錯誤。</p>';
+                }
+                }
+
+                // 執行
+                renderPaperList();
+            </script>
+            </div>
+        </div>
+        <div class="biography-e-60">
+            <div class="biography-e-61"> <span class="biography-e-62">
+                    <p><strong>Conference Papers</strong></p>
+                </span><span class="biography-e-63">
+                    <p>Representative Research Contributions</p>
+                </span></div>
+            <div class="biography-e-366">
+                <div class="biography-e-367">
+                    <div class="biography-e-368"> <i class="fas fa-circle biography-e-369"><span class="biography-e-370">
+                                
+                            </span></i><span class="cd-paragraph-clean biography-e-371">
+                            <p>[J13] Chia-Heng Yen, Chun-Teng Chen, Mason Chern, Ying-Yen Chen, Chun-Yi Kuo, Jih-Nung Lee, Shu-Yi Kao,&nbsp;<u>Kai-Chiang Wu</u>, and Mango Chao, "CNN-based Stochastic Regression for IDDQ Outlier Identification," in preparation,&nbsp;<em>IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems</em>.</p>
+                        </span></div>
+                    <div class="biography-e-404"> <i class="fas fa-circle biography-e-405"><span class="biography-e-406">
+                                
+                            </span></i><span class="cd-paragraph-clean biography-e-407">
+                            <p>[J12] Wei-Tao Huang, Li-An Huang, and&nbsp;<u>Kai-Chiang Wu</u>, "Cost-Effective Timing Speculation for In-Situ Aging Resilience," submitted to&nbsp;<em>ACM Transactions on Design Automation of Electronic Systems</em>.</p>
+                        </span></div>
+                    <div class="biography-e-400"> <i class="fas fa-circle biography-e-401"><span class="biography-e-402">
+                                
+                            </span></i><span class="cd-paragraph-clean biography-e-403">
+                            <p>[J11] Tsung-Kai Su, Wei-Kai Cheng, Cheng-Yueh Chen, Wei-Chun Wang, Yung-Tang Chuang, Guang-Hsun Tan, Hao-Cheng Lin, Cheng-Hung Hou, Ching-Min Liu, Ya-Chu Chang, Jing-Jong Shyue,&nbsp;<u>Kai-Chiang Wu</u>, and Hao-Wu Lin, "Room-Temperature Fabricated Multilevel Non-Volatile Lead-Free Cesium Halide Memristors for Reconfigurable In-Memory Computing," accepted and in press,&nbsp;<em>ACS Nano</em>.</p>
+                        </span></div>
+                    <div class="biography-e-396"> <i class="fas fa-circle biography-e-397"><span class="biography-e-398">
+                                
+                            </span></i><span class="cd-paragraph-clean biography-e-399">
+                            <p>[J10] Yu-Teng Nien,&nbsp;<u>Kai-Chiang Wu</u>, Dong-Zhen Lee, Ying-Yen Chen, Po-Lin Chen, Mason Chern, Jih-Nung Lee, Shu-Yi Kao, and Mango Chao, "Methodology of Generating Timing-Slack-Based Cell-Aware Tests," accepted and in press,&nbsp;<em>IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems</em>.</p>
+                        </span></div>
+                    <div class="biography-e-392"> <i class="fas fa-circle biography-e-393"><span class="biography-e-394">
+                                
+                            </span></i><span class="cd-paragraph-clean biography-e-395">
+                            <p>[J09] Shuo-Wen Chang, Yu-Teng Nien, Yu-Pang Hu,&nbsp;<u>Kai-Chiang Wu</u>, Chi-Chun Wang, Fu-Sheng Huang, Yi-Lun Tang, Yung-Chen Chen, Ming-Chien Chen, and Mango Chao, "Test Methodology for Defect-based Bridge Faults,"&nbsp;<em>IEEE Transactions on Very Large Scale Integration Systems</em>, vol. 30, no. 7, pp. 975-988, July 2022.</p>
+                        </span></div>
+                    <div class="biography-e-388"> <i class="fas fa-circle biography-e-389"><span class="biography-e-390">
+                                
+                            </span></i><span class="cd-paragraph-clean biography-e-391">
+                            <p>[J08] Ning-Chi Huang, Chao-Wei Cheng, and&nbsp;<u>Kai-Chiang Wu</u>, "Timing Variability-Aware Analysis and Optimization for Variable-Latency Designs,"&nbsp;<em>IEEE Transactions on Very Large Scale Integration Systems</em>, vol. 30, no. 1, pp. 81-94, Jan. 2022.</p>
+                        </span></div>
+                    <div class="biography-e-384"> <i class="fas fa-circle biography-e-385"><span class="biography-e-386">
+                                
+                            </span></i><span class="cd-paragraph-clean biography-e-387">
+                            <p>[J07] Li-Wei Chen, Wei-Chun Wang, Shao-Han Ko, Chien-Yu Chen, Chih-Ting Hsu, Fu-Ching Chiao, Tse-Wei Chen,&nbsp;<u>Kai-Chiang Wu</u>, and Hao-Wu Lin, "Highly Uniform All-Vacuum-Deposited Inorganic Perovskite Artificial Synapses for Reservoir Computing,"&nbsp;<em>Advanced Intelligent Systems</em>, vol. 3, no. 1, pp. 1-11, Jan. 2021.</p>
+                        </span></div>
+                    <div class="biography-e-380"> <i class="fas fa-circle biography-e-381"><span class="biography-e-382">
+                                
+                            </span></i><span class="cd-paragraph-clean biography-e-383">
+                            <p>[J06] Tien-Hung Tseng, Chung-Han Chou, and&nbsp;<u>Kai-Chiang Wu</u>, "Making Aging Useful by Recycling Aging-Induced Clock Skew,"&nbsp;<em>ACM Transactions on Design Automation of Electronic Systems</em>, vol. 25, no. 2, pp. 1-24, March 2020.</p>
+                        </span></div>
+                    <div class="biography-e-376"> <i class="fas fa-circle biography-e-377"><span class="biography-e-378">
+                                
+                            </span></i><span class="cd-paragraph-clean biography-e-379">
+                            <p>[J05] Chung-Han Chou, Tsui-Yun Chang,&nbsp;<u>Kai-Chiang Wu</u>, and Shih-Chieh Chang, "Sensor-Based Time Speculation in the Presence of Timing Variability,"&nbsp;<em>IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems</em>, vol. 37, no. 6, pp. 1133-1142, June 2018.</p>
+                        </span></div>
+                    <div class="biography-e-372"> <i class="fas fa-circle biography-e-373"><span class="biography-e-374">
+                                
+                            </span></i><span class="cd-paragraph-clean biography-e-375">
+                            <p>[J04]&nbsp;<u>Kai-Chiang Wu</u>, Ing-Chao Lin, Yao-Te Wang, and Shuen-Shiang Yang, "BTI-Aware Sleep Transistor Sizing Algorithm for Reliable Power Gating Designs,"&nbsp;<em>IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems</em>, vol. 33, no. 10, pp. 1591-1595, Oct. 2014.</p>
+                        </span></div>
+                    <div class="biography-e-416"> <i class="fas fa-circle biography-e-417"><span class="biography-e-418">
+                                
+                            </span></i><span class="cd-paragraph-clean biography-e-419">
+                            <p>[J03] Ing-Chao Lin, Kuan-Hui Li, Chia-Hao Lin, and&nbsp;<u>Kai-Chiang Wu</u>, "NBTI and Leakage Reduction Using ILP-Based Approach,"&nbsp;<em>IEEE Transactions on Very Large Scale Integration Systems</em>, vol. 22, no. 9, pp. 2034-2038, Sep. 2014.</p>
+                        </span></div>
+                    <div class="biography-e-412"> <i class="fas fa-circle biography-e-413"><span class="biography-e-414">
+                                
+                            </span></i><span class="cd-paragraph-clean biography-e-415">
+                            <p>[J02]&nbsp;<u>Kai-Chiang Wu</u>&nbsp;and Diana Marculescu, "Power-Planning-Aware Soft Error Hardening via Selective Voltage Assignment,"&nbsp;<em>IEEE Transactions on Very Large Scale Integration Systems</em>, vol. 22, no. 1, pp. 136-145, Jan. 2014.</p>
+                        </span></div>
+                    <div class="biography-e-408"> <i class="fas fa-circle biography-e-409"><span class="biography-e-410">
+                                
+                            </span></i><span class="cd-paragraph-clean biography-e-411">
+                            <p>[J01]&nbsp;<u>Kai-Chiang Wu</u>&nbsp;and Diana Marculescu, "A Low-Cost, Systematic Methodology for Soft Error Robustness of Logic Circuits,"&nbsp;<em>IEEE Transactions on Very Large Scale Integration Systems</em>, vol. 21, no. 2, pp. 367-379, Feb. 2013.</p>
+                        </span></div>
+                </div>
+            </div>
+        </div>
+        <div class="biography-e-92">
+            <div class="biography-e-66"> <span class="h1 biography-e-64">
+                    <p><strong>Talks &amp; Posters</strong></p>
+                </span><span class="biography-e-65">
+                    <p>Invited Talks, Conference Presentations, and Research Posters</p>
+                </span></div>
+            <div class="biography-e-91">
+                <div class="biography-e-88">
+                    <div class="biography-e-73">
+                        <div class="biography-e-72">
+                            <div class="biography-e-69"> <span class="biography-e-67">
+                                    <p><strong>Invited Talk at Realtek</strong></p>
+                                </span><span class="biography-e-68">
+                                    <p>Aug. 2019.</p>
+                                </span></div>
+                            <div class="biography-e-71"> <span class="biography-e-70">
+                                    <p>Approximate Computing for High-Performance, Energy-Efficient AI at the Edge.</p>
+                                </span></div>
+                        </div>
+                    </div>
+                    <div class="biography-e-80">
+                        <div class="biography-e-79">
+                            <div class="biography-e-76"> <span class="biography-e-74">
+                                    <p><strong>Invited Talk at DATE Workshop (on Machine Learning for CAD)</strong></p>
+                                </span><span class="biography-e-75">
+                                    <p>March 2019.</p>
+                                </span></div>
+                            <div class="biography-e-78"> <span class="biography-e-77">
+                                    <p>Learning-based Methodology for Assessing Chip Health in terms of Aging and Reliability.</p>
+                                    <p>&nbsp;<a href="https://www.date-conference.com/conference/workshop-w07" rel="noopener noreferrer" target="_blank"><strong>[link]</strong></a></p>
+                                </span></div>
+                        </div>
+                    </div>
+                    <div class="biography-e-87">
+                        <div class="biography-e-86">
+                            <div class="biography-e-83"> <span class="biography-e-81">
+                                    <p><strong>Seminar at CS, NCTU</strong></p>
+                                </span><span class="biography-e-82">
+                                    <p>Feb. 2019.</p>
+                                </span></div>
+                            <div class="biography-e-85"> <span class="biography-e-84">
+                                    <p>Accelerating AI Applications based on High-Performance, High-Accuracy Approximate Computing.</p>
+                                </span></div>
+                        </div>
+                    </div>
+                    <div class="biography-e-100">
+                        <div class="biography-e-101">
+                            <div class="biography-e-102"> <span class="biography-e-103">
+                                    <p><strong>Invited Talk at Taiwan AI Academy</strong></p>
+                                </span><span class="biography-e-104">
+                                    <p>Oct. 2018.</p>
+                                </span></div>
+                            <div class="biography-e-105"> <span class="biography-e-106">
+                                    <p>Accelerating AI Applications based on High-Performance, High-Accuracy Approximate Computing.</p>
+                                </span></div>
+                        </div>
+                    </div>
+                    <div class="biography-e-93">
+                        <div class="biography-e-94">
+                            <div class="biography-e-95"> <span class="biography-e-96">
+                                    <p><strong>Invited Talk at Novatek</strong></p>
+                                </span><span class="biography-e-97">
+                                    <p>Sep. 2018.</p>
+                                </span></div>
+                            <div class="biography-e-98"> <span class="biography-e-99">
+                                    <p>Accelerating AI Applications based on High-Performance, High-Accuracy Approximate Computing.</p>
+                                </span></div>
+                        </div>
+                    </div>
+                    <div class="biography-e-135">
+                        <div class="biography-e-136">
+                            <div class="biography-e-137"> <span class="biography-e-138">
+                                    <p><strong>Invited Talk at AI Computing Workshop</strong></p>
+                                </span><span class="biography-e-139">
+                                    <p>July 2018.</p>
+                                </span></div>
+                            <div class="biography-e-140"> <span class="biography-e-141">
+                                    <p>Accelerating AI Applications based on High-Performance, High-Accuracy Approximate Computing.</p>
+                                    <p><a href="https://www.youtube.com/watch?v=yvgrDtP_eVc" rel="noopener noreferrer" target="_blank"><strong>[video]</strong></a></p>
+                                </span></div>
+                        </div>
+                    </div>
+                    <div class="biography-e-128">
+                        <div class="biography-e-129">
+                            <div class="biography-e-130"> <span class="biography-e-131">
+                                    <p><strong>Seminar at CS, CCU</strong></p>
+                                </span><span class="biography-e-132">
+                                    <p>May 2018.</p>
+                                </span></div>
+                            <div class="biography-e-133"> <span class="biography-e-134">
+                                    <p>Addressing IC/SOC Aging: Design-time vs. Run-time.</p>
+                                </span></div>
+                        </div>
+                    </div>
+                    <div class="biography-e-121">
+                        <div class="biography-e-122">
+                            <div class="biography-e-123"> <span class="biography-e-124">
+                                    <p><strong>Invited Talk at Realtek</strong></p>
+                                </span><span class="biography-e-125">
+                                    <p>Feb. 2018.</p>
+                                </span></div>
+                            <div class="biography-e-126"> <span class="biography-e-127">
+                                    <p>Computer-Aided IC Design for Reliability: Verification and Optimization.</p>
+                                </span></div>
+                        </div>
+                    </div>
+                    <div class="biography-e-114">
+                        <div class="biography-e-115">
+                            <div class="biography-e-116"> <span class="biography-e-117">
+                                    <p><strong>Invited Talk at Synopsys</strong></p>
+                                </span><span class="biography-e-118">
+                                    <p>Sep. 2017.</p>
+                                </span></div>
+                            <div class="biography-e-119"> <span class="biography-e-120">
+                                    <p>Chip Health Assessment Using Learning-based Monitoring Strategy.</p>
+                                </span></div>
+                        </div>
+                    </div>
+                    <div class="biography-e-107">
+                        <div class="biography-e-108">
+                            <div class="biography-e-109"> <span class="biography-e-110">
+                                    <p><strong>Seminar at ICE, CYCU</strong></p>
+                                </span><span class="biography-e-111">
+                                    <p>May 2016.</p>
+                                </span></div>
+                            <div class="biography-e-112"> <span class="biography-e-113">
+                                    <p>Reliable and Trustworthy Computing - An IC/CAD Perspective.</p>
+                                </span></div>
+                        </div>
+                    </div>
+                    <div class="biography-e-149">
+                        <div class="biography-e-150">
+                            <div class="biography-e-151"> <span class="biography-e-152">
+                                    <p><strong>Seminar at CSIE, NCNU</strong></p>
+                                </span><span class="biography-e-153">
+                                    <p>Jan. 2016.</p>
+                                </span></div>
+                            <div class="biography-e-154"> <span class="biography-e-155">
+                                    <p>Reliable and Trustworthy Computing - An IC/CAD Perspective.</p>
+                                </span></div>
+                        </div>
+                    </div>
+                    <div class="biography-e-142">
+                        <div class="biography-e-143">
+                            <div class="biography-e-144"> <span class="biography-e-145">
+                                    <p><strong>Seminar at EE, NTU</strong></p>
+                                </span><span class="biography-e-146">
+                                    <p>Dec. 2014.</p>
+                                </span></div>
+                            <div class="biography-e-147"> <span class="biography-e-148">
+                                    <p>Computer-Aided IC Design for Reliability: Verification and Optimization.</p>
+                                </span></div>
+                        </div>
+                    </div>
+                    <div class="biography-e-163">
+                        <div class="biography-e-164">
+                            <div class="biography-e-165"> <span class="biography-e-166">
+                                    <p><strong>Seminar at CSE, YZU</strong></p>
+                                </span><span class="biography-e-167">
+                                    <p>March 2014.</p>
+                                </span></div>
+                            <div class="biography-e-168"> <span class="biography-e-169">
+                                    <p>&nbsp;Computer-Aided IC Design for Reliability: Verification and Optimization.</p>
+                                </span></div>
+                        </div>
+                    </div>
+                    <div class="biography-e-156">
+                        <div class="biography-e-157">
+                            <div class="biography-e-158"> <span class="biography-e-159">
+                                    <p><strong>EDA Forum</strong></p>
+                                </span><span class="biography-e-160">
+                                    <p>Oct. 2013.</p>
+                                </span></div>
+                            <div class="biography-e-161"> <span class="biography-e-162">
+                                    <p>Analysis and Optimization of Aging-Induced Performance Degradation.</p>
+                                </span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="biography-e-90"> <span class="biography-e-89"> <img src="assets/asset-d1bff0b1" alt=""> </span></div>
+            </div>
+            <div class="biography-e-170">
+                <div class="biography-e-207"> <span class="biography-e-208"> <img src="assets/asset-18ad901e" alt=""> </span></div>
+                <div class="biography-e-171">
+                    <div class="biography-e-172">
+                        <div class="biography-e-173">
+                            <div class="biography-e-174"> <span class="biography-e-175">
+                                    <p><strong>Innovation with Impact Research Exhibition</strong></p>
+                                </span><span class="biography-e-176">
+                                    <p>April 2011.</p>
+                                </span></div>
+                            <div class="biography-e-177"> <span class="biography-e-178">
+                                    <p>Optimizing Circuit Reliability: From Functional to Temporal Perspectives, Carnegie Mellon University.</p>
+                                </span></div>
+                        </div>
+                    </div>
+                    <div class="biography-e-179">
+                        <div class="biography-e-180">
+                            <div class="biography-e-181"> <span class="biography-e-182">
+                                    <p><strong>Ph.D. Forum at DAC 2010</strong></p>
+                                </span><span class="biography-e-183">
+                                    <p>June 2010.</p>
+                                </span></div>
+                            <div class="biography-e-184"> <span class="biography-e-185">
+                                    <p>Reducing Circuit Soft Error Rate (SER): From Combinational to Sequential Circuits.</p>
+                                    <p>&nbsp;<a href="https://people.cs.nycu.edu.tw/~kcw/pub/phdforum@dac10.pdf" rel="noopener noreferrer" target="_blank">[pdf]</a></p>
+                                </span></div>
+                        </div>
+                    </div>
+                    <div class="biography-e-186">
+                        <div class="biography-e-187">
+                            <div class="biography-e-188"> <span class="biography-e-189">
+                                    <p><strong>University Booth at DATE 2010</strong></p>
+                                </span><span class="biography-e-190">
+                                    <p>March 2010.</p>
+                                </span></div>
+                            <div class="biography-e-191"> <span class="biography-e-192">
+                                    <p>Reducing Circuit Soft Error Rate (SER): From Combinational to Sequential Circuits.</p>
+                                    <p><a href="https://people.cs.nycu.edu.tw/~kcw/pub/ubooth@date10.pdf" rel="noopener noreferrer" target="_blank">[pdf]</a></p>
+                                </span></div>
+                        </div>
+                    </div>
+                    <div class="biography-e-200">
+                        <div class="biography-e-201">
+                            <div class="biography-e-202"> <span class="biography-e-203">
+                                    <p><a href="http://www.ece.cmu.edu/~cssi/seminars/infosheets/2009/infosheets_2009_wu.html" rel="noopener noreferrer" target="_blank"><strong>CMU CSSI Seminar</strong></a></p>
+                                </span><span class="biography-e-204">
+                                    <p>Dec. 2009.</p>
+                                </span></div>
+                            <div class="biography-e-205"> <span class="biography-e-206">
+                                    <p>On the Mitigation of NBTI-Induced Performance Degradation.</p>
+                                </span></div>
+                        </div>
+                    </div>
+                    <div class="biography-e-193">
+                        <div class="biography-e-194">
+                            <div class="biography-e-195"> <span class="biography-e-196">
+                                    <p><a href="http://www.ece.cmu.edu/~cssi/seminars/infosheets/2008/infosheets_2008_wu.html" rel="noopener noreferrer" target="_blank"><strong>CMU CSSI Seminar</strong></a></p>
+                                </span><span class="biography-e-197">
+                                    <p>April 2008.</p>
+                                </span></div>
+                            <div class="biography-e-198"> <span class="biography-e-199">
+                                    <p>Circuit Optimization Techniques for Radiation-Induced Soft Errors.</p>
+                                </span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="biography-e-209"> <span class="cd-paragraph-clean biography-e-210">
+                <p><strong>Professional Service</strong></p>
+            </span>
+            <div class="biography-e-211">
+                <div class="biography-e-212">
+                    <div class="biography-e-213"> <span class="biography-e-214"> <img src="assets/template-asset-10139957.svg" alt=""> </span>
+                        <div class="biography-e-215"> <span class="cd-paragraph-clean biography-e-216">
+                                <p>&nbsp;After joining NCTU</p>
+                            </span><span class="cd-paragraph-clean biography-e-217">
+                                <p><strong>Member</strong>, Technical Program Committee, DATE (2017).</p>
+                                <p><strong>Member</strong>, Technical Program Committee, ICCAD (2014-2016).</p>
+                                <p><br></p>
+                                <p><strong>Reviewer</strong>, the following journals:</p>
+                                <p>- IEEE TR (2014),</p>
+                                <p>- IEEE TNS (2017),</p>
+                                <p>- IEEE TCAD (2015-2016),</p>
+                                <p>- IEEE TVLSI (2014-2018),</p>
+                                <p>- Journal of Electronic Testing (2014),</p>
+                                <p>- Journal on Emerging Technologies in Computing Systems (2015).</p>
+                            </span></div>
+                    </div>
+                </div>
+                <div class="biography-e-218">
+                    <div class="biography-e-219"> <span class="biography-e-220"> <img src="assets/template-asset-e2293669.svg" alt=""> </span>
+                        <div class="biography-e-221"> <span class="cd-paragraph-clean biography-e-222">
+                                <p>Before joining NCTU</p>
+                            </span><span class="biography-e-223">
+                                <p><strong>Reviewer</strong>, the following journals:</p>
+                                <p>- IEEE TC (2008),</p>
+                                <p>- IEEE TCAD (2009, 2011),</p>
+                                <p>- IEEE TVLSI (2010),</p>
+                                <p>- IEEE TDMR (2010),</p>
+                                <p>- ACM TODAES (2010-2011),</p>
+                                <p>- Microelectronics Reliability (2010),</p>
+                                <p>- Journal of Electronic Testing (2012).</p>
+                                <p><br></p>
+                                <p><strong>Reviewer</strong>, the following conferences:</p>
+                                <p>- ICCAD (2007-2008),</p>
+                                <p>- VLSI Design (2008),</p>
+                                <p>- DAC (2009-2011),</p>
+                                <p>- DATE (2010),</p>
+                                <p>- ISCA (2010),</p>
+                                <p>- NOCS (2010),</p>
+                                <p>- ICCD (2010),</p>
+                                <p>- ICECS (2010),</p>
+                                <p>- ISLPED (2011).</p>
+                            </span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="biography-e-229">
+            <div class="biography-e-224">
+                <div class="biography-e-231"> <span class="biography-e-232"> <img src="assets/template-asset-965f6edd" alt=""> </span><span class="biography-e-233"> <img src="assets/template-asset-e35bb589" alt=""> </span><span class="biography-e-234"> <img src="assets/template-asset-de537acb" alt=""> </span></div>
+                <div class="biography-e-225"> <span class="biography-e-230">
+                        <p><strong>Honors &amp; Awards</strong></p>
+                    </span>
+                    <div class="biography-e-226">
+                        <div class="biography-e-227"> <i class="fa-solid fa-medal biography-e-235"></i><span class="biography-e-228">
+                                <p>[104年度] National Science and Technology Council (NSTC) research support</p>
+                            </span></div>
+                        <div class="biography-e-248"> <i class="fa-solid fa-medal biography-e-247"></i><span class="biography-e-246">
+                                <p>[103年度] National Science and Technology Council (NSTC) research support</p>
+                            </span></div>
+                        <div class="biography-e-245"> <i class="fas fa-check-circle biography-e-244"></i><span class="biography-e-243">
+                                <p><strong>Member</strong>, Honor Society of Phi Kappa Phi, 2011</p>
+                            </span></div>
+                        <div class="biography-e-242"> <i class="fas fa-check-circle biography-e-241"></i><span class="biography-e-240">
+                                <p><strong>Member</strong>, Phi Tau Phi Scholastic Honor Society, Republic of China (Taiwan), 2002</p>
+                            </span></div>
+                        <div class="biography-e-239"> <i class="fas fa-check-circle biography-e-238"></i><span class="biography-e-237">
+                                <p><strong>Best Paper Award</strong>, International Conference on Computer Design (ICCD), 2008</p>
+                            </span></div>
+                        <div class="biography-e-249"> <i class="fas fa-check-circle biography-e-251"></i><span class="biography-e-250">
+                                <p><strong>Best Project Award</strong>,&nbsp;<a href="http://www.ece.cmu.edu/courses/18766/" rel="noopener noreferrer" target="_blank"><em>The Art and Science of System Level Design</em></a>&nbsp;(18766), ECE Department, CMU, Spring 2007</p>
+                            </span></div>
+                        <div class="biography-e-236">
+                            <div class="biography-e-252">
+                                <div class="biography-e-253"> <i class="fas fa-circle biography-e-254"><span class="biography-e-255">
+                                            
+                                        </span></i><span class="cd-paragraph-clean biography-e-256">
+                                        <p>Topic: Communication-Aware Face Detection Using NoC Architecture</p>
+                                    </span></div>
+                                <div class="biography-e-261"> <i class="fas fa-circle biography-e-262"><span class="biography-e-263">
+                                            
+                                        </span></i><span class="cd-paragraph-clean biography-e-264">
+                                        <p>Implemented an AdaBoost-based face detection algorithm with Network-on-Chip (NoC) architecture. The whole implementation was carried out on a Xilinx FPGA board and verified to be much faster than the software application.</p>
+                                    </span></div>
+                                <div class="biography-e-257"> <i class="fas fa-circle biography-e-258"><span class="biography-e-259">
+                                            
+                                        </span></i><span class="cd-paragraph-clean biography-e-260">
+                                        <p>Contributed to "Communication-Aware Face Detection Using NoC Architecture," in&nbsp;<em>Proc. of Int'l Conference on Computer Vision Systems</em>&nbsp;(ICVS), pp. 181-189, May 2008.</p>
+                                    </span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="biography-e-287"> <span class="biography-e-289">
+                <p><strong>Sponsorships &amp; Grants</strong></p>
+            </span>
+            <div class="biography-e-288">
+                <div data-cdhs="up" class="biography-e-290"> <span class="biography-e-291">
+                        <p>[105年度] 科技部研究計畫</p>
+                    </span><span class="biography-e-292">
+                        <p><strong>以電路特徵與行為的資料分析來探討硬體特洛伊的植入、偵測及預防之研究</strong></p>
+                    </span><span class="biography-e-302">
+                        <p>三年期，經費共$2454K</p>
+                    </span>
+                    <!-- <span class="biography-e-293">
+                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium</p>
+                    </span> -->
+                </div>
+                <div data-cdhs="up" class="biography-e-301"> <span class="biography-e-298">
+                        <p>[104年度] 科技部研究計畫</p>
+                    </span><span class="biography-e-299">
+                        <p><strong>次14奈米晶片之即時可靠度監測及壽命延長技術</strong></p>
+                    </span><span class="biography-e-303">
+                        <p>一年期，經費共$681K</p>
+                    </span>
+                    <!-- <span class="biography-e-300">
+                        <p>Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam</p>
+                    </span> -->
+                </div>
+                <div data-cdhs="up" class="biography-e-297"> <span class="biography-e-294">
+                        <p>[103年度] 科技部研究計畫</p>
+                    </span><span class="biography-e-295">
+                        <p><strong>考慮電路老化問題之晶片可靠度驗證及最佳化研究</strong></p>
+                    </span><span class="biography-e-304">
+                        <p>一年期，經費共$695K</p>
+                    </span>
+                    <!-- <span class="biography-e-296">
+                        <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet,</p>
+                    </span> -->
+                </div>
+            </div>
+        </div>
+    </div>
+        <footer class="footer">
+        <div class="footer__top">
+    
+            <!-- 品牌 / Logo -->
+            <div class="footer__col footer__col--brand">
+                <span class="footer__brand-text">
+                    <a href="index.html" class="link" target="_self">
+                        <p>Professor </p>
+                        <p><strong>Kai-Chiang Wu</strong></p>
+                    </a>
+                </span>
+            </div>
+    
+            <!-- MENU -->
+            <div class="footer__col footer__col--menu">
+                <span class="footer__col-title">
+                    <p>MENU</p>
+                </span>
+                <div class="footer__list">
+                    <span class="footer__link"><a href="index.html" class="link" target="_self">
+                            <p>Home</p>
+                        </a></span>
+                    <span class="footer__link"><a href="biography.html" class="link" target="_self">
+                            <p>Biography</p>
+                        </a></span>
+                    <span class="footer__link"><a href="member.html" class="link" target="_self">
+                            <p>Members</p>
+                        </a></span>
+                    <span class="footer__link"><a href="researchs.html" class="link" target="_self">
+                            <p>Researchs</p>
+                        </a></span>
+                    <span class="footer__link"><a href="index.html" class="link" target="_self">
+                            <p>Activities</p>
+                        </a></span>
+                    <span class="footer__link"><a href="form.html" class="link" target="_self">
+                            <p>Contact</p>
+                        </a></span>
+                </div>
+            </div>
+    
+            <!-- EXTERNAL -->
+            <div class="footer__col footer__col--external">
+                <span class="footer__col-title">
+                    <p>EXTERNAL</p>
+                </span>
+                <div class="footer__list">
+                    <span class="footer__link">
+                        <a href="https://www.nycu.edu.tw/nycu/ch/index" class="link" rel="noopener noreferrer" target="_blank">
+                            <p>國立陽明交通大學網站</p>
+                        </a>
+                    </span>
+                    <span class="footer__link">
+                        <a href="https://www.cs.nycu.edu.tw/" class="link" rel="noopener noreferrer" target="_blank">
+                            <p>資訊工程學系網站</p>
+                        </a>
+                    </span>
+                    <span class="footer__link">
+                        <a href="index.html" class="link" target="_self">
+                            <p>研究生學習態度 (周孜燦教授)</p>
+                        </a>
+                    </span>
+                    <span class="footer__link">
+                        <a href="http://ccckmit.wikidot.com/gs:ref" class="link" rel="noopener noreferrer" target="_blank">
+                            <p>研究生指南 (陳鍾誠教授)</p>
+                        </a>
+                    </span>
+                </div>
+            </div>
+    
+            <!-- SOCIAL -->
+            <div class="footer__col footer__col--social">
+                <span class="footer__col-title">
+                    <p>SOCIAL</p>
+                </span>
+                <div class="footer__list">
+                    <div class="footer__social-row">
+    
+                        <div class="footer__social-icon-bg">
+                            <div class="footer__social-icon">
+                                <a href="https://www.facebook.com/" class="link" target="_blank">
+                                    <svg width="auto" height="auto" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill="#ffffff" d="M19.254 2C15.312 2 13 4.082 13 8.826V13H8v5h5v12h5V18h4l1-5h-5V9.672C18 7.885 18.583 7 20.26 7H23V2.205C22.526 2.141 21.145 2 19.254 2"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+    
+                        <div class="footer__social-icon-bg">
+                            <div class="footer__social-icon">
+                                <a href="https://twitter.com/login" class="link" target="_blank">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="auto" height="auto" viewBox="0 0 32 32">
+                                        <path fill="#ffffff" d="M28 8.559a9.813 9.813 0 0 1-2.828.773a4.94 4.94 0 0 0 2.164-2.723a9.92 9.92 0 0 1-3.125 1.196a4.924 4.924 0 0 0-8.52 3.367c0 .387.043.762.13 1.121A13.957 13.957 0 0 1 5.67 7.148a4.885 4.885 0 0 0-.667 2.477c0 1.707.867 3.215 2.191 4.098a4.895 4.895 0 0 1-2.23-.618v.063a4.922 4.922 0 0 0 3.95 4.828a4.902 4.902 0 0 1-2.224.086a4.932 4.932 0 0 0 4.598 3.422A9.875 9.875 0 0 1 4 23.539a13.924 13.924 0 0 0 7.547 2.215c9.058 0 14.012-7.504 14.012-14.012c0-.21-.008-.426-.016-.637A10.085 10.085 0 0 0 28 8.56z"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+    
+                        <div class="footer__social-icon-bg">
+                            <div class="footer__social-icon">
+                                <a href="https://www.instagram.com/accounts/login/?hl=en" class="link" target="_blank">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="auto" height="auto" viewBox="0 0 14 14">
+                                        <g fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M10.333 3.644a.25.25 0 1 1 0-.5m0 .5a.25.25 0 1 0 0-.5"></path>
+                                            <path d="M.858 3.431A2.573 2.573 0 0 1 3.431.858h6.862a2.573 2.573 0 0 1 2.573 2.573v6.862a2.573 2.573 0 0 1-2.573 2.573H3.43a2.573 2.573 0 0 1-2.573-2.573V3.43Z"></path>
+                                            <path d="M4.312 6.862a2.55 2.55 0 1 0 5.1 0a2.55 2.55 0 1 0-5.1 0"></path>
+                                        </g>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+    
+                    </div>
+                </div>
+            </div>
+    
+        </div>
+    
+        <div class="footer__divider"></div>
+    
+        <div class="footer__bottom">
+            <span class="footer__copyright">
+                <p>©2026 Kai-Chiang Wu . All rights reserved Email: example@university.edu</p>
+            </span>
+            <div class="footer__legal">
+                <span class="footer__legal-link">
+                    <p>Terms of Use</p>
+                </span>
+            </div>
+        </div>
+    
+    </footer>\n<script id="humble-scroll-lib" defer="">
+        // Credits to
+        // Original file created from,
+        // GitHub Repository: https://github.com/MathiasOxholm/humbleScroll
+        // User: MathiasOxholm
+        //
+
+        // needs css file to be imported (done in public/css/cdHumbleScroll.css)
+
+        // Main HumbleScroll Class
+        class HumbleScroll {
+            constructor(options, frameWindow, frameDocument) {
+                this.frameWindow = frameWindow;
+                this.frameDocument = frameDocument;
+                this.prefix = "cdhs";
+                this.documentHeight =
+                    this.frameDocument.documentElement.scrollHeight -
+                    this.frameDocument.documentElement.clientHeight;
+                this.defaultOptions = {
+                    root: null,
+                    element: `[data-${this.prefix}]`,
+                    enableCallback: false,
+                    callback: `data-${this.prefix}-call`,
+                    class: `${this.prefix}-inview`,
+                    initClass: `${this.prefix}-init`,
+                    threshold: 0.1,
+                    offset: {
+                        top: 0,
+                        right: 0,
+                        bottom: -40,
+                        left: 0,
+                    },
+                    repeat: false,
+                    mirror: false,
+                    startEvent: "DOMContentLoaded",
+                    responsive: {},
+                };
+                this.options = {
+                    ...this.defaultOptions,
+                    ...options
+                };
+                this.observerOptions = {
+                    root: this.options.root,
+                    rootMargin: this.calculateOffset(this.options.offset),
+                    threshold: this.options.threshold,
+                };
+                this.animationElements = this.frameDocument.querySelectorAll(
+                    this.options.element
+                );
+                this.callbackElements = this.frameDocument.querySelectorAll(
+                    `[${this.options.callback}]`
+                );
+                this.init();
+            }
+
+            init() {
+                const completeEvent = new Event(`${this.prefix}:complete`);
+                let caller = null;
+
+                const animationObserverFunction = (entries) => {
+                    entries.forEach((entry) => {
+                        const dataAttr = entry.target.dataset.hs;
+
+                        if (!this.options.repeat && entry.isIntersecting) {
+                            entry.target.classList.add(this.options.class);
+                            observer.unobserve(entry.target);
+                            return;
+                        }
+
+                        entry.target.classList.toggle(this.options.class, entry.isIntersecting);
+
+                        if (entry.isIntersecting && dataAttr && dataAttr.includes("once")) {
+                            entry.target.classList.add(this.options.class);
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                };
+
+                const callbackObserverFunction = (entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            const call = entry.target.getAttribute(this.options.callback);
+                            this.frameWindow[call] && this.frameWindow[call]();
+                            caller.unobserve(entry.target);
+                        }
+                    });
+                };
+
+                const observer = new IntersectionObserver(
+                    animationObserverFunction,
+                    this.observerOptions
+                );
+                this.options.enableCallback &&
+                    (caller = new IntersectionObserver(
+                        callbackObserverFunction,
+                        this.observerOptions
+                    ));
+
+                const startEventCallback = () => {
+                    this.animationElements.forEach((element) => {
+                        observer.observe(element);
+                        element.classList.add(this.options.initClass);
+                    });
+
+                    this.frameDocument.body.classList.add(`${this.prefix}-loaded`);
+                    this.frameWindow.dispatchEvent(completeEvent);
+                };
+
+                const startCallbackFunction = () => {
+                    this.callbackElements.forEach((element) => {
+                        caller.observe(element);
+                    });
+                };
+                //doing a small hack here (readystate)
+                // Directly call startEventCallback if document is already loaded
+
+                onDocumentReady(function() {
+                    startEventCallback();
+                    // Place your code here that needs to run once the DOM is ready
+                }, this.frameDocument);
+                // if (this.frameDocument.readyState === "complete") {
+                //   console.log("runs here 1")
+
+                // } else {
+                //   console.log("runs here 2")
+
+                //   this.frameWindow.addEventListener(
+                //     this.options.startEvent,
+                //     startEventCallback
+                //   );
+                // }
+                // this.frameWindow.addEventListener(
+                //   this.options.startEvent,
+                //   startEventCallback
+                // );
+                this.options.enableCallback &&
+                    this.frameWindow.addEventListener(
+                        this.options.startEvent,
+                        startCallbackFunction
+                    );
+                this.frameWindow.dispatchEvent(completeEvent);
+            }
+
+            update() {
+                this.init();
+            }
+
+            on(event, callback) {
+                this.frameWindow.addEventListener(
+                    event,
+                    (e) => {
+                        callback(e);
+                    },
+                    false
+                );
+            }
+
+            calculateOffset(data) {
+                let obj = {
+                    ...this.defaultOptions.offset,
+                    ...data
+                };
+                let offset = `${obj.top}px ${obj.right}px ${obj.bottom}px ${obj.left}px`;
+                let repeatOffset = `${this.documentHeight}px ${obj.right}px ${obj.bottom}px ${obj.left}px`;
+
+                if (this.options.repeat) {
+                    !this.options.mirror && (offset = repeatOffset);
+                }
+
+                return offset;
+            }
+        }
+
+
+        // If you need to create an instance of HumbleScroll outside of this file,
+        // you can import HumbleScroll from this file and then use the following code.
+        // The actual instantiation would typically happen in the file where you are using the FrameContextConsumer.
+
+        /*
+        // Fire regular HumbleScroll with specific options
+        const scroll = new HumbleScroll({
+          enableCallback: true,
+          repeat: true,
+          mirror: true,
+          threshold: 0.25,
+          offset: {
+            top: -64,
+            bottom: -150,
+          },
+        }, frameWindow, frameDocument); // frameWindow and frameDocument should be the window and document of the iframe
+        */
+
+        function onDocumentReady(fn, document) {
+            if (document.readyState !== "loading") {
+                // If the document is already ready, call the function immediately
+                fn();
+            } else {
+                // Otherwise, wait for the DOMContentLoaded event
+                document.addEventListener("DOMContentLoaded", fn);
+            }
+        }
+    </script>
+    <script defer="">
+        console.log("[HS Debug] HumbleScroll initialization script starting (deferred).");
+        try {
+            console.log("[HS Debug] Attempting to initialize HumbleScroll (deferred)...");
+            var scroll = new HumbleScroll({
+                prefix: "cdhs",
+                enableCallback: true,
+                repeat: false,
+                mirror: true,
+                threshold: 0.25,
+                offset: {
+                    top: -64,
+                    bottom: -150,
+                },
+            }, window, document);
+            console.log("[HS Debug] HumbleScroll initialized successfully (deferred):", scroll);
+        } catch (e) {
+            console.error("[HS Debug] Error initializing HumbleScroll (deferred):", e);
+        }
+        console.log("[HS Debug] HumbleScroll initialization script finished (deferred).");
+    </script>
+
+
+
+
+</body></html>
+
