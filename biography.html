@@ -601,6 +601,29 @@
             <script>
                 const GAS_URL = 'https://script.google.com/macros/s/AKfycbz_vLaoNk5UZGxlf_GrKATmIlPp22jxJ9zc73Upp5nxHeh_dy4T9RvK5S0SIY5_nm75kg/exec';
 
+                // 渲染完成後，用 height + opacity 漸變讓內容平滑展開淡入
+                function revealContainer(container) {
+                    if (!container) return;
+                    const targetHeight = container.scrollHeight;
+                    container.style.overflow = 'hidden';
+                    container.style.height = '0px';
+                    container.style.opacity = '0';
+                    requestAnimationFrame(() => {
+                        container.style.transition = 'height 0.6s ease, opacity 0.6s ease';
+                        requestAnimationFrame(() => {
+                            container.style.height = targetHeight + 'px';
+                            container.style.opacity = '1';
+                        });
+                    });
+                    container.addEventListener('transitionend', function onEnd(event) {
+                        if (event.propertyName !== 'height') return;
+                        container.style.height = 'auto';
+                        container.style.overflow = '';
+                        container.style.transition = '';
+                        container.removeEventListener('transitionend', onEnd);
+                    });
+                }
+
                 async function renderPaperList() {
                 const container = document.getElementById('paperListContainer');
 
@@ -635,6 +658,8 @@
                 } catch (error) {
                     console.error('抓取失敗：', error);
                     container.innerHTML = '<p>資料載入失敗，請按 F12 開啟控制台 (Console) 查看詳細錯誤。</p>';
+                } finally {
+                    revealContainer(container);
                 }
                 }
 

@@ -467,27 +467,121 @@
     <div class="activities-section"> <span class="activities-section__title">
             <p>國內外研討會、成果發表、聚餐</p>
         </span>
+        <!-- JS 會將圖片動態渲染注入到這個 div 裡面 -->
         <div class="activities-gallery">
-            <span class="activities-gallery__item">
-                <img src="assets/template-asset-51cf9bb6.svg" alt="" fetchpriority="high" loading="eager">
-            </span>
-            <span class="activities-gallery__item">
-                <img src="assets/template-asset-51cf9bb6.svg" alt="" fetchpriority="high" loading="eager">
-            </span>
-            <span class="activities-gallery__item">
-                <img src="assets/template-asset-51cf9bb6.svg" alt="">
-            </span>
-            <span class="activities-gallery__item">
-                <img src="assets/template-asset-51cf9bb6.svg" alt="">
-            </span>
-            <span class="activities-gallery__item">
-                <img src="assets/template-asset-51cf9bb6.svg" alt="">
-            </span>
-            <span class="activities-gallery__item">
-                <img src="assets/template-asset-51cf9bb6.svg" alt="">
-            </span>
+            <p>圖片載入中...</p>
         </div>
     </div>
+    <!-- 點擊圖片後放大顯示用的燈箱 -->
+    <div class="activities-lightbox">
+        <button class="activities-lightbox__close" aria-label="關閉" type="button">&times;</button>
+        <img class="activities-lightbox__image" src="" alt="">
+    </div>
+    <script>
+        // GAS API 網址：同一份試算表，用 sheet 參數指定 activities_photo 分頁
+        const ACTIVITIES_API_URL = 'https://script.google.com/macros/s/AKfycbzYhayj1RoQ2hQtMYNTWCAWSYKWXho88X1W5kCm5HiBdzAyucN2y3z-BalGZFXqZLmo5Q/exec?sheet=activities_photo';
+
+        // 依欄位名稱從 GAS 回傳的物件中取值：忽略大小寫、前後空白，並支援多種別名
+        function getField(row, ...aliases) {
+            const normalize = (s) => String(s).trim().toLowerCase().replace(/[\s_]+/g, ' ');
+            const targets = aliases.map(normalize);
+            for (const key of Object.keys(row)) {
+                if (targets.includes(normalize(key))) {
+                    const value = row[key];
+                    if (value !== undefined && value !== null && value !== '') return value;
+                }
+            }
+            return '';
+        }
+
+        async function renderActivitiesGallery() {
+            const container = document.querySelector('.activities-gallery');
+            if (!container) return;
+
+            container.innerHTML = '<p>圖片載入中...</p>';
+
+            try {
+                const response = await fetch(ACTIVITIES_API_URL);
+                const result = await response.json();
+
+                if (result.status === 'success' && result.data.length > 0) {
+                    const htmlString = result.data.map(photo => {
+                        const url = getField(photo, 'url', 'image_url', 'photo_url', 'image', '網址', '圖片網址');
+                        if (!url) return '';
+
+                        const caption = getField(photo, 'caption', 'title', 'name', '說明', '標題');
+                        return `
+                        <span class="activities-gallery__item">
+                            <img src="${url}" alt="${caption}" loading="lazy">
+                        </span>
+                        `;
+                    }).join('');
+
+                    container.innerHTML = htmlString || '<p>目前尚無活動照片。</p>';
+                } else {
+                    container.innerHTML = '<p>目前尚無活動照片。</p>';
+                }
+            } catch (error) {
+                console.error('Fetch error:', error);
+                container.innerHTML = '<p>照片載入失敗。</p>';
+            } finally {
+                revealContainer(container);
+            }
+        }
+
+        // 渲染完成後，用 height + opacity 漸變讓內容平滑展開淡入
+        function revealContainer(container) {
+            if (!container) return;
+            const targetHeight = container.scrollHeight;
+            container.style.overflow = 'hidden';
+            container.style.height = '0px';
+            container.style.opacity = '0';
+            requestAnimationFrame(() => {
+                container.style.transition = 'height 0.6s ease, opacity 0.6s ease';
+                requestAnimationFrame(() => {
+                    container.style.height = targetHeight + 'px';
+                    container.style.opacity = '1';
+                });
+            });
+            container.addEventListener('transitionend', function onEnd(event) {
+                if (event.propertyName !== 'height') return;
+                container.style.height = 'auto';
+                container.style.overflow = '';
+                container.style.transition = '';
+                container.removeEventListener('transitionend', onEnd);
+            });
+        }
+
+        // 點擊縮圖時放大顯示（用事件委派，動態插入的圖片也適用）
+        function initLightbox() {
+            const lightbox = document.querySelector('.activities-lightbox');
+            const lightboxImage = document.querySelector('.activities-lightbox__image');
+            const gallery = document.querySelector('.activities-gallery');
+            if (!lightbox || !lightboxImage || !gallery) return;
+
+            const closeLightbox = () => {
+                lightbox.classList.remove('is-active');
+                lightboxImage.src = '';
+            };
+
+            gallery.addEventListener('click', (event) => {
+                const img = event.target.closest('img');
+                if (!img) return;
+                lightboxImage.src = img.src;
+                lightboxImage.alt = img.alt;
+                lightbox.classList.add('is-active');
+            });
+
+            lightbox.addEventListener('click', closeLightbox);
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape') closeLightbox();
+            });
+        }
+
+        // 執行載入
+        renderActivitiesGallery();
+        initLightbox();
+    </script>
     <footer class="footer">
         <div class="footer__top">
     

@@ -547,15 +547,20 @@
             <p>成員資料載入中...</p>
         </div>
     </div>
+    <div class="member-e-18">
+        <span class="member-section-title">
+            <p><strong>Graduated Students</strong></p>
+        </span>
+        <!-- JS 會將卡片動態渲染注入到這個 div 裡面 -->
+        <div class="member-e-20 member-graduated-list">
+            <p>成員資料載入中...</p>
+        </div>
+    </div>
     <script>
-        // GAS API 網址，指定讀取 current_members 分頁
-        const MEMBERS_API_URL = 'https://script.google.com/macros/s/AKfycbzYhayj1RoQ2hQtMYNTWCAWSYKWXho88X1W5kCm5HiBdzAyucN2y3z-BalGZFXqZLmo5Q/exec?sheet=current_members';
-
-        async function renderMemberList() {
-        const container = document.querySelector('.member-e-20');
-        if (!container) return;
-
-        container.innerHTML = '<p>成員資料載入中...</p>';
+        // GAS API 網址：同一份試算表，用 sheet 參數指定分頁
+        const MEMBERS_API_BASE = 'https://script.google.com/macros/s/AKfycbzYhayj1RoQ2hQtMYNTWCAWSYKWXho88X1W5kCm5HiBdzAyucN2y3z-BalGZFXqZLmo5Q/exec';
+        const MEMBERS_API_URL = `${MEMBERS_API_BASE}?sheet=current_members`;
+        const GRADUATED_API_URL = `${MEMBERS_API_BASE}?sheet=graduated_students`;
 
         // 依欄位名稱從 GAS 回傳的物件中取值：忽略大小寫、前後空白，並支援多種別名
         function getField(row, ...aliases) {
@@ -570,69 +575,154 @@
             return '';
         }
 
-        try {
-            const response = await fetch(MEMBERS_API_URL);
-            const result = await response.json();
+        // 共用渲染流程：抓資料 -> 用 cardBuilder 組出每張卡片 -> 塞入指定容器
+        async function renderCardList(apiUrl, containerSelector, cardBuilder) {
+            const container = document.querySelector(containerSelector);
+            if (!container) return;
 
-            if (result.status === 'success' && result.data.length > 0) {
-            const htmlString = result.data.map(member => {
-                const name = getField(member, 'name', '姓名');
+            container.innerHTML = '<p>成員資料載入中...</p>';
 
-                // 組合副標題（學位與入學年份）：例如 "doctoral student, since Spring 2017"
-                const degreeText = getField(member, 'pursuing_degree', 'pursuing degree', '學位');
-                const yearIn = getField(member, 'year_in', 'year in', '入學年份');
-                const yearText = yearIn ? `, since ${yearIn}` : '';
-                const subtitle = `${degreeText}${yearText}`;
+            try {
+                const response = await fetch(apiUrl);
+                const result = await response.json();
 
-                // 讀取 research direction（欄位有空格）
-                const direction = getField(member, 'research direction', '研究方向');
-                const directionHtml = direction ? `
-                <div class="member-card__skill">
-                    <span class="member-card__skill-icon"> <img src="assets/direction.svg" alt=""> </span>
-                    <span class="member-card__skill-text"><p>${direction}</p></span>
-                </div>` : '';
-
-                // 讀取 key skills（欄位有空格）
-                const skills = getField(member, 'key skills', '重點技能');
-                const skillsHtml = skills ? `
-                <div class="member-card__skill">
-                    <span class="member-card__skill-icon"> <img src="assets/skill.svg" alt=""> </span>
-                    <span class="member-card__skill-text"><p>${skills}</p></span>
-                </div>` : '';
-
-                return `
-                <div class="member-card">
-                    <span class="member-card__avatar">
-                    <img src="assets/template-asset-bf1f8502" alt="${name}">
-                    </span>
-                    <div class="member-card__header">
-                    <span class="member-card__name">
-                        <p><strong>${name}</strong></p>
-                    </span>
-                    <span class="member-card__subtitle">
-                        <p>${subtitle}</p>
-                    </span>
-                    </div>
-                    <div class="member-card__skills">
-                    ${directionHtml}
-                    ${skillsHtml}
-                    </div>
-                </div>
-                `;
-            }).join('');
-
-            container.innerHTML = htmlString;
-            } else {
-            container.innerHTML = '<p>目前尚無成員資料。</p>';
+                if (result.status === 'success' && result.data.length > 0) {
+                    container.innerHTML = result.data.map(cardBuilder).join('');
+                } else {
+                    container.innerHTML = '<p>目前尚無成員資料。</p>';
+                }
+            } catch (error) {
+                console.error('Fetch error:', error);
+                container.innerHTML = '<p>成員資料載入失敗。</p>';
+            } finally {
+                revealContainer(container);
             }
-        } catch (error) {
-            console.error('Fetch error:', error);
-            container.innerHTML = '<p>成員資料載入失敗。</p>';
         }
+
+        // 渲染完成後，用 height + opacity 漸變讓內容平滑展開淡入
+        function revealContainer(container) {
+            if (!container) return;
+            const targetHeight = container.scrollHeight;
+            container.style.overflow = 'hidden';
+            container.style.height = '0px';
+            container.style.opacity = '0';
+            requestAnimationFrame(() => {
+                container.style.transition = 'height 0.6s ease, opacity 0.6s ease';
+                requestAnimationFrame(() => {
+                    container.style.height = targetHeight + 'px';
+                    container.style.opacity = '1';
+                });
+            });
+            container.addEventListener('transitionend', function onEnd(event) {
+                if (event.propertyName !== 'height') return;
+                container.style.height = 'auto';
+                container.style.overflow = '';
+                container.style.transition = '';
+                container.removeEventListener('transitionend', onEnd);
+            });
+        }
+
+        function buildCurrentMemberCard(member) {
+            const name = getField(member, 'name', '姓名');
+
+            // 組合副標題（學位與入學年份）：例如 "doctoral student, since Spring 2017"
+            const degreeText = getField(member, 'pursuing_degree', 'pursuing degree', '學位');
+            const yearIn = getField(member, 'year_in', 'year in', '入學年份');
+            const yearText = yearIn ? `, since ${yearIn}` : '';
+            const subtitle = `${degreeText}${yearText}`;
+
+            // 讀取 research direction（欄位有空格）
+            const direction = getField(member, 'research direction', '研究方向');
+            const directionHtml = direction ? `
+            <div class="member-card__skill">
+                <span class="member-card__skill-icon"> <img src="assets/direction.svg" alt=""> </span>
+                <span class="member-card__skill-text"><p>${direction}</p></span>
+            </div>` : '';
+
+            // 讀取 key skills（欄位有空格）
+            const skills = getField(member, 'key skills', '重點技能');
+            const skillsHtml = skills ? `
+            <div class="member-card__skill">
+                <span class="member-card__skill-icon"> <img src="assets/skill.svg" alt=""> </span>
+                <span class="member-card__skill-text"><p>${skills}</p></span>
+            </div>` : '';
+
+            return `
+            <div class="member-card">
+                <span class="member-card__avatar">
+                <img src="assets/blank-profile.jpg" alt="${name}">
+                </span>
+                <div class="member-card__header">
+                <span class="member-card__name">
+                    <p><strong>${name}</strong></p>
+                </span>
+                <span class="member-card__subtitle">
+                    <p>${subtitle}</p>
+                </span>
+                </div>
+                <div class="member-card__skills">
+                ${directionHtml}
+                ${skillsHtml}
+                </div>
+            </div>
+            `;
+        }
+
+        function buildGraduatedMemberCard(member) {
+            const name = getField(member, 'name', '姓名');
+
+            // 組合副標題（學位與在學年份區間）：例如 "PhD, 2015~2021"
+            const degree = getField(member, 'degree', '學位');
+            const yearIn = getField(member, 'year_in', 'year in', '入學年份');
+            const yearOut = getField(member, 'year_out', 'year out', '畢業年份');
+            const yearRange = (yearIn || yearOut) ? `, ${yearIn}${yearIn && yearOut ? '~' : ''}${yearOut}` : '';
+            const subtitle = `${degree}${yearRange}`;
+
+            // 畢業去向：另起一行顯示在副標題下方
+            const whereToGo = getField(member, 'where_to_go', 'where to go', '畢業去向');
+            const whereToGoHtml = whereToGo ? `<p>Now at: ${whereToGo}</p>` : '';
+
+            // 讀取 research direction（欄位有空格）
+            const direction = getField(member, 'research direction', '研究方向');
+            const directionHtml = direction ? `
+            <div class="member-card__skill">
+                <span class="member-card__skill-icon"> <img src="assets/direction.svg" alt=""> </span>
+                <span class="member-card__skill-text"><p>${direction}</p></span>
+            </div>` : '';
+
+            // 讀取 key skills（欄位有空格）
+            const skills = getField(member, 'key skills', '重點技能');
+            const skillsHtml = skills ? `
+            <div class="member-card__skill">
+                <span class="member-card__skill-icon"> <img src="assets/skill.svg" alt=""> </span>
+                <span class="member-card__skill-text"><p>${skills}</p></span>
+            </div>` : '';
+
+            return `
+            <div class="member-card">
+                <span class="member-card__avatar">
+                <img src="assets/blank-profile.jpg" alt="${name}">
+                </span>
+                <div class="member-card__header">
+                <span class="member-card__name">
+                    <p><strong>${name}</strong></p>
+                </span>
+                <span class="member-card__subtitle">
+                    <p>${subtitle}</p>
+                    ${whereToGoHtml}
+                </span>
+                </div>
+                <div class="member-card__skills">
+                ${directionHtml}
+                ${skillsHtml}
+                </div>
+            </div>
+            `;
         }
 
         // 執行載入
-        renderMemberList();
+        renderCardList(MEMBERS_API_URL, '.member-e-20', buildCurrentMemberCard);
+        renderCardList(GRADUATED_API_URL, '.member-graduated-list', buildGraduatedMemberCard);
     </script>
         <footer class="footer">
         <div class="footer__top">

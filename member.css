@@ -174,15 +174,16 @@
     width: 100%;
     display: flex;
     max-width: 300px;
-    position: relative
+    position: relative;
+    padding-bottom: 36px;
 }.member-card__avatar {
     border-radius: 100px 100px 100px 100px;
     -o-object-fit: cover;
        object-fit: cover;
     width: 100%;
-    height: 200px;
+    height: 160px;
     position: relative;
-    max-width: 200px
+    max-width: 160px
 }.member-card__header {
     flex-direction: column;
     justify-content: center;
