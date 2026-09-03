@@ -616,6 +616,15 @@
 .site-nav__menu.is-active {
     display: flex !important;
 }
+/* 手機版選單展開時，CTA 按鈕是 .site-nav__menu 的下一個手足元素，覆蓋 display:none 讓它顯示在選單覆蓋層之上 */
+.site-nav__menu.is-active ~ .btn.btn-outline {
+    display: flex !important;
+    position: fixed;
+    left: 50%;
+    bottom: 40px;
+    transform: translateX(-50%);
+    z-index: 2001;
+}
 /* ============================================================
    Responsive — max-width: 1199px
    ============================================================ */
