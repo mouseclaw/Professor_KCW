@@ -467,7 +467,7 @@
     <div class="member-e-10">
         <div class="member-e-9"> <span class="member-e-8"> <img src="assets/template-asset-51cf9bb6.svg" alt="" fetchpriority="high" loading="eager"> </span></div>
     </div>
-    <div class="member-e-17"> <span class="member-e-16">
+    <div class="member-e-17"> <span class="member-section-title">
             <p><strong>Supervisor</strong></p>
         </span>
         <div class="member-e-15"> <span class="member-e-13"> <img src="assets/img-d0115097.png" alt="" fetchpriority="high" loading="eager"> </span>
@@ -487,57 +487,153 @@
                 </span></div>
         </div>
     </div>
-    <div class="member-e-18"> <span class="member-e-19">
+    <!-- <div class="member-e-18"> <span class="member-section-title">
             <p><strong>Current Members</strong></p>
         </span>
         <div class="member-e-20">
-            <div class="member-e-21"> <span class="member-e-22"> <img src="assets/template-asset-bf1f8502" alt=""> </span>
-                <div class="member-e-23"> <span class="member-e-24">
+            <div class="member-card"> <span class="member-card__avatar"> <img src="assets/template-asset-bf1f8502" alt=""> </span>
+                <div class="member-card__header"> <span class="member-card__name">
                         <p><strong>Graduate Student A</strong></p>
-                    </span><span class="member-e-25">
+                    </span><span class="member-card__subtitle">
                         <p>doctoral student, since Spring 2017; master student, 2015~2016</p>
                     </span></div>
-                <div class="member-e-26">
-                    <div class="member-e-27"> <span class="member-e-28"> <img src="assets/direction.svg" alt=""> </span><span class="member-e-29">
+                <div class="member-card__skills">
+                    <div class="member-card__skill"> <span class="member-card__skill-icon"> <img src="assets/direction.svg" alt=""> </span><span class="member-card__skill-text">
                             <p>AI computing platform design, variable-latency design convergence (analysis and optimization)</p>
                         </span></div>
-                    <div class="member-e-30"> <span class="member-e-31"> <img src="assets/skill.svg" alt=""> </span><span class="member-e-32">
+                    <div class="member-card__skill"> <span class="member-card__skill-icon"> <img src="assets/skill.svg" alt=""> </span><span class="member-card__skill-text">
                             <p>Approximate computing, performance/reliability analysis based on graph traversal</p>
                         </span></div>
                 </div>
             </div>
-            <div class="member-e-81"> <span class="member-e-82"> <img src="assets/template-asset-bf1f8502" alt=""> </span>
-                <div class="member-e-83"> <span class="member-e-84">
+            <div class="member-card"> <span class="member-card__avatar"> <img src="assets/template-asset-bf1f8502" alt=""> </span>
+                <div class="member-card__header"> <span class="member-card__name">
                         <p><strong>Graduate Student B</strong></p>
-                    </span><span class="member-e-85">
+                    </span><span class="member-card__subtitle">
                         <p>doctoral student, since Spring 2017; master student, 2015~2016</p>
                     </span></div>
-                <div class="member-e-86">
-                    <div class="member-e-87"> <span class="member-e-88"> <img src="assets/direction.svg" alt=""> </span><span class="member-e-89">
+                <div class="member-card__skills">
+                    <div class="member-card__skill"> <span class="member-card__skill-icon"> <img src="assets/direction.svg" alt=""> </span><span class="member-card__skill-text">
                             <p>AI computing platform design, variable-latency design convergence (analysis and optimization)</p>
                         </span></div>
-                    <div class="member-e-90"> <span class="member-e-91"> <img src="assets/skill.svg" alt=""> </span><span class="member-e-92">
+                    <div class="member-card__skill"> <span class="member-card__skill-icon"> <img src="assets/skill.svg" alt=""> </span><span class="member-card__skill-text">
                             <p>Approximate computing, performance/reliability analysis based on graph traversal</p>
                         </span></div>
                 </div>
             </div>
-            <div class="member-e-69"> <span class="member-e-70"> <img src="assets/template-asset-bf1f8502" alt=""> </span>
-                <div class="member-e-71"> <span class="member-e-72">
+            <div class="member-card"> <span class="member-card__avatar"> <img src="assets/template-asset-bf1f8502" alt=""> </span>
+                <div class="member-card__header"> <span class="member-card__name">
                         <p><strong>Graduate Student C</strong></p>
-                    </span><span class="member-e-73">
+                    </span><span class="member-card__subtitle">
                         <p>doctoral student, since Spring 2017; master student, 2015~2016</p>
                     </span></div>
-                <div class="member-e-74">
-                    <div class="member-e-75"> <span class="member-e-76"> <img src="assets/direction.svg" alt=""> </span><span class="member-e-77">
+                <div class="member-card__skills">
+                    <div class="member-card__skill"> <span class="member-card__skill-icon"> <img src="assets/direction.svg" alt=""> </span><span class="member-card__skill-text">
                             <p>AI computing platform design, variable-latency design convergence (analysis and optimization)</p>
                         </span></div>
-                    <div class="member-e-78"> <span class="member-e-79"> <img src="assets/skill.svg" alt=""> </span><span class="member-e-80">
+                    <div class="member-card__skill"> <span class="member-card__skill-icon"> <img src="assets/skill.svg" alt=""> </span><span class="member-card__skill-text">
                             <p>Approximate computing, performance/reliability analysis based on graph traversal</p>
                         </span></div>
                 </div>
             </div>
         </div>
+    </div> -->
+    <div class="member-e-18">
+        <span class="member-section-title">
+            <p><strong>Current Members</strong></p>
+        </span>
+        <!-- JS 會將卡片動態渲染注入到這個 div 裡面 -->
+        <div class="member-e-20">
+            <p>成員資料載入中...</p>
+        </div>
     </div>
+    <script>
+        // GAS API 網址，指定讀取 current_members 分頁
+        const MEMBERS_API_URL = 'https://script.google.com/macros/s/AKfycbzYhayj1RoQ2hQtMYNTWCAWSYKWXho88X1W5kCm5HiBdzAyucN2y3z-BalGZFXqZLmo5Q/exec?sheet=current_members';
+
+        async function renderMemberList() {
+        const container = document.querySelector('.member-e-20');
+        if (!container) return;
+
+        container.innerHTML = '<p>成員資料載入中...</p>';
+
+        // 依欄位名稱從 GAS 回傳的物件中取值：忽略大小寫、前後空白，並支援多種別名
+        function getField(row, ...aliases) {
+            const normalize = (s) => String(s).trim().toLowerCase().replace(/[\s_]+/g, ' ');
+            const targets = aliases.map(normalize);
+            for (const key of Object.keys(row)) {
+                if (targets.includes(normalize(key))) {
+                    const value = row[key];
+                    if (value !== undefined && value !== null && value !== '') return value;
+                }
+            }
+            return '';
+        }
+
+        try {
+            const response = await fetch(MEMBERS_API_URL);
+            const result = await response.json();
+
+            if (result.status === 'success' && result.data.length > 0) {
+            const htmlString = result.data.map(member => {
+                const name = getField(member, 'name', '姓名');
+
+                // 組合副標題（學位與入學年份）：例如 "doctoral student, since Spring 2017"
+                const degreeText = getField(member, 'pursuing_degree', 'pursuing degree', '學位');
+                const yearIn = getField(member, 'year_in', 'year in', '入學年份');
+                const yearText = yearIn ? `, since ${yearIn}` : '';
+                const subtitle = `${degreeText}${yearText}`;
+
+                // 讀取 research direction（欄位有空格）
+                const direction = getField(member, 'research direction', '研究方向');
+                const directionHtml = direction ? `
+                <div class="member-card__skill">
+                    <span class="member-card__skill-icon"> <img src="assets/direction.svg" alt=""> </span>
+                    <span class="member-card__skill-text"><p>${direction}</p></span>
+                </div>` : '';
+
+                // 讀取 key skills（欄位有空格）
+                const skills = getField(member, 'key skills', '重點技能');
+                const skillsHtml = skills ? `
+                <div class="member-card__skill">
+                    <span class="member-card__skill-icon"> <img src="assets/skill.svg" alt=""> </span>
+                    <span class="member-card__skill-text"><p>${skills}</p></span>
+                </div>` : '';
+
+                return `
+                <div class="member-card">
+                    <span class="member-card__avatar">
+                    <img src="assets/template-asset-bf1f8502" alt="${name}">
+                    </span>
+                    <div class="member-card__header">
+                    <span class="member-card__name">
+                        <p><strong>${name}</strong></p>
+                    </span>
+                    <span class="member-card__subtitle">
+                        <p>${subtitle}</p>
+                    </span>
+                    </div>
+                    <div class="member-card__skills">
+                    ${directionHtml}
+                    ${skillsHtml}
+                    </div>
+                </div>
+                `;
+            }).join('');
+
+            container.innerHTML = htmlString;
+            } else {
+            container.innerHTML = '<p>目前尚無成員資料。</p>';
+            }
+        } catch (error) {
+            console.error('Fetch error:', error);
+            container.innerHTML = '<p>成員資料載入失敗。</p>';
+        }
+        }
+
+        // 執行載入
+        renderMemberList();
+    </script>
         <footer class="footer">
         <div class="footer__top">
     
@@ -668,7 +764,7 @@
             </div>
         </div>
     
-    </footer>\n<script id="humble-scroll-lib" defer="">
+    </footer><script id="humble-scroll-lib" defer="">
         // Credits to
         // Original file created from,
         // GitHub Repository: https://github.com/MathiasOxholm/humbleScroll

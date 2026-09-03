@@ -597,7 +597,7 @@
                 </span></div>
             <div class="biography-e-312">
                 <div id="paperListContainer" class="biography-e-313">
-                    資料載入中...\n</div>
+                    資料載入中...</div>
             <script>
                 const GAS_URL = 'https://script.google.com/macros/s/AKfycbz_vLaoNk5UZGxlf_GrKATmIlPp22jxJ9zc73Upp5nxHeh_dy4T9RvK5S0SIY5_nm75kg/exec';
 
@@ -616,7 +616,7 @@
                         const dateText = [item.month, item.year].filter(Boolean).join(' ');
                         
                         const details = [confText, pageText, dateText].filter(Boolean).join(', ');
-                        const linkText = item.url ? ` <a href="${item.url}" target="_blank" rel="noopener noreferrer">[Link]</a>` : '';
+                        const linkText = item.url ? ` <a href="${item.url}" target="_blank" rel="noopener noreferrer"><button class="btn btn-primary">[Link]</button></a>` : '';
 
                         return `
                         <div class="biography-e-317">
@@ -1237,7 +1237,7 @@
             </div>
         </div>
     
-    </footer>\n<script id="humble-scroll-lib" defer="">
+    </footer><script id="humble-scroll-lib" defer="">
         // Credits to
         // Original file created from,
         // GitHub Repository: https://github.com/MathiasOxholm/humbleScroll
