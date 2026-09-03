@@ -1,6 +1,5 @@
 <!DOCTYPE html><html lang="en"><head>
     <link rel="preload" as="image" href="https://assets-v2.codedesign.ai/storage/v1/object/public/codedesign-templates-assets/template-asset-6b9b5195" fetchpriority="high">
-    <link rel="preload" as="image" href="https://assets-v2.codedesign.ai/storage/v1/object/public/playground_81eaab96/img-d0115097.png" fetchpriority="high">
     <link rel="preload" as="image" href="assets/bg-line1.svg" fetchpriority="high">
     <style id="styleguide-variables">
         :root {
@@ -441,6 +440,25 @@
                 </nav>
             </header>
         </div>
+
+        <script>
+            (function () {
+                const navToggle = document.querySelector('.site-nav__toggle');
+                const navClose = document.querySelector('.site-nav__close');
+                const navMenu = document.querySelector('.site-nav__menu');
+                if (!navToggle || !navClose || !navMenu) return;
+
+                navToggle.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    navMenu.classList.add('is-active');
+                });
+
+                navClose.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    navMenu.classList.remove('is-active');
+                });
+            })();
+        </script>
 
         <div data-cdhs="up" class="page-hero__content home-hero__content">
             <div class="page-hero__intro home-hero__copy">

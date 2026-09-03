@@ -446,6 +446,25 @@
                 </nav>
             </header>
         </div>
+
+        <script>
+            (function () {
+                const navToggle = document.querySelector('.site-nav__toggle');
+                const navClose = document.querySelector('.site-nav__close');
+                const navMenu = document.querySelector('.site-nav__menu');
+                if (!navToggle || !navClose || !navMenu) return;
+
+                navToggle.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    navMenu.classList.add('is-active');
+                });
+
+                navClose.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    navMenu.classList.remove('is-active');
+                });
+            })();
+        </script>
     
         <!-- Hero 副標題區塊 -->
         <div data-cdhs="up" class="page-hero__content">

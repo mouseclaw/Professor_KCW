@@ -447,6 +447,25 @@
                 </nav>
             </header>
         </div>
+
+        <script>
+            (function () {
+                const navToggle = document.querySelector('.site-nav__toggle');
+                const navClose = document.querySelector('.site-nav__close');
+                const navMenu = document.querySelector('.site-nav__menu');
+                if (!navToggle || !navClose || !navMenu) return;
+
+                navToggle.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    navMenu.classList.add('is-active');
+                });
+
+                navClose.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    navMenu.classList.remove('is-active');
+                });
+            })();
+        </script>
     
         <div data-cdhs="up" class="page-hero__content">
             <div class="page-hero__intro">
@@ -505,67 +524,168 @@
     </div>
     <div class="researchs-pub-section">
         <div class="researchs-pub-header"> <span class="researchs-pub-header__title">
-                <p>Publications</p>
+                <p>Journal Papers</p>
             </span><span class="researchs-pub-header__subtitle">
                 <p>Representative Research Contributions</p>
             </span></div>
         <div class="researchs-pub-columns">
-            <div class="researchs-pub-list">
-                <div class="researchs-pub-item"> <i class="fas fa-circle researchs-bullet-icon"><span class="researchs-bullet-icon-marker">
-                        </span></i><span class="cd-paragraph-clean researchs-pub-item__text">
-                        <p>[J13] Chia-Heng Yen, Chun-Teng Chen, Mason Chern, Ying-Yen Chen, Chun-Yi Kuo, Jih-Nung Lee, Shu-Yi Kao,&nbsp;<u>Kai-Chiang Wu</u>, and Mango Chao, "CNN-based Stochastic Regression for IDDQ Outlier Identification," in preparation,&nbsp;<em>IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems</em>.</p>
-                    </span></div>
-                <div class="researchs-pub-item"> <i class="fas fa-circle researchs-bullet-icon"><span class="researchs-bullet-icon-marker">
-                        </span></i><span class="cd-paragraph-clean researchs-pub-item__text">
-                        <p>[J12] Wei-Tao Huang, Li-An Huang, and&nbsp;<u>Kai-Chiang Wu</u>, "Cost-Effective Timing Speculation for In-Situ Aging Resilience," submitted to&nbsp;<em>ACM Transactions on Design Automation of Electronic Systems</em>.</p>
-                    </span></div>
-                <div class="researchs-pub-item"> <i class="fas fa-circle researchs-bullet-icon"><span class="researchs-bullet-icon-marker">
-                        </span></i><span class="cd-paragraph-clean researchs-pub-item__text">
-                        <p>[J11] Tsung-Kai Su, Wei-Kai Cheng, Cheng-Yueh Chen, Wei-Chun Wang, Yung-Tang Chuang, Guang-Hsun Tan, Hao-Cheng Lin, Cheng-Hung Hou, Ching-Min Liu, Ya-Chu Chang, Jing-Jong Shyue,&nbsp;<u>Kai-Chiang Wu</u>, and Hao-Wu Lin, "Room-Temperature Fabricated Multilevel Non-Volatile Lead-Free Cesium Halide Memristors for Reconfigurable In-Memory Computing," accepted and in press,&nbsp;<em>ACS Nano</em>.</p>
-                    </span></div>
-                <div class="researchs-pub-item"> <i class="fas fa-circle researchs-bullet-icon"><span class="researchs-bullet-icon-marker">
-                        </span></i><span class="cd-paragraph-clean researchs-pub-item__text">
-                        <p>[J10] Yu-Teng Nien,&nbsp;<u>Kai-Chiang Wu</u>, Dong-Zhen Lee, Ying-Yen Chen, Po-Lin Chen, Mason Chern, Jih-Nung Lee, Shu-Yi Kao, and Mango Chao, "Methodology of Generating Timing-Slack-Based Cell-Aware Tests," accepted and in press,&nbsp;<em>IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems</em>.</p>
-                    </span></div>
-                <div class="researchs-pub-item"> <i class="fas fa-circle researchs-bullet-icon"><span class="researchs-bullet-icon-marker">
-                        </span></i><span class="cd-paragraph-clean researchs-pub-item__text">
-                        <p>[J09] Shuo-Wen Chang, Yu-Teng Nien, Yu-Pang Hu,&nbsp;<u>Kai-Chiang Wu</u>, Chi-Chun Wang, Fu-Sheng Huang, Yi-Lun Tang, Yung-Chen Chen, Ming-Chien Chen, and Mango Chao, "Test Methodology for Defect-based Bridge Faults,"&nbsp;<em>IEEE Transactions on Very Large Scale Integration Systems</em>, vol. 30, no. 7, pp. 975-988, July 2022.</p>
-                    </span></div>
-                <div class="researchs-pub-item"> <i class="fas fa-circle researchs-bullet-icon"><span class="researchs-bullet-icon-marker">
-                        </span></i><span class="cd-paragraph-clean researchs-pub-item__text">
-                        <p>[J08] Ning-Chi Huang, Chao-Wei Cheng, and&nbsp;<u>Kai-Chiang Wu</u>, "Timing Variability-Aware Analysis and Optimization for Variable-Latency Designs,"&nbsp;<em>IEEE Transactions on Very Large Scale Integration Systems</em>, vol. 30, no. 1, pp. 81-94, Jan. 2022.</p>
-                    </span></div>
-                <div class="researchs-pub-item"> <i class="fas fa-circle researchs-bullet-icon"><span class="researchs-bullet-icon-marker">
-                        </span></i><span class="cd-paragraph-clean researchs-pub-item__text">
-                        <p>[J07] Li-Wei Chen, Wei-Chun Wang, Shao-Han Ko, Chien-Yu Chen, Chih-Ting Hsu, Fu-Ching Chiao, Tse-Wei Chen,&nbsp;<u>Kai-Chiang Wu</u>, and Hao-Wu Lin, "Highly Uniform All-Vacuum-Deposited Inorganic Perovskite Artificial Synapses for Reservoir Computing,"&nbsp;<em>Advanced Intelligent Systems</em>, vol. 3, no. 1, pp. 1-11, Jan. 2021.</p>
-                    </span></div>
-                <div class="researchs-pub-item"> <i class="fas fa-circle researchs-bullet-icon"><span class="researchs-bullet-icon-marker">
-                        </span></i><span class="cd-paragraph-clean researchs-pub-item__text">
-                        <p>[J06] Tien-Hung Tseng, Chung-Han Chou, and&nbsp;<u>Kai-Chiang Wu</u>, "Making Aging Useful by Recycling Aging-Induced Clock Skew,"&nbsp;<em>ACM Transactions on Design Automation of Electronic Systems</em>, vol. 25, no. 2, pp. 1-24, March 2020.</p>
-                    </span></div>
-                <div class="researchs-pub-item"> <i class="fas fa-circle researchs-bullet-icon"><span class="researchs-bullet-icon-marker">
-                        </span></i><span class="cd-paragraph-clean researchs-pub-item__text">
-                        <p>[J05] Chung-Han Chou, Tsui-Yun Chang,&nbsp;<u>Kai-Chiang Wu</u>, and Shih-Chieh Chang, "Sensor-Based Time Speculation in the Presence of Timing Variability,"&nbsp;<em>IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems</em>, vol. 37, no. 6, pp. 1133-1142, June 2018.</p>
-                    </span></div>
-                <div class="researchs-pub-item"> <i class="fas fa-circle researchs-bullet-icon"><span class="researchs-bullet-icon-marker">
-                        </span></i><span class="cd-paragraph-clean researchs-pub-item__text">
-                        <p>[J04]&nbsp;<u>Kai-Chiang Wu</u>, Ing-Chao Lin, Yao-Te Wang, and Shuen-Shiang Yang, "BTI-Aware Sleep Transistor Sizing Algorithm for Reliable Power Gating Designs,"&nbsp;<em>IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems</em>, vol. 33, no. 10, pp. 1591-1595, Oct. 2014.</p>
-                    </span></div>
-                <div class="researchs-pub-item"> <i class="fas fa-circle researchs-bullet-icon"><span class="researchs-bullet-icon-marker">
-                        </span></i><span class="cd-paragraph-clean researchs-pub-item__text">
-                        <p>[J03] Ing-Chao Lin, Kuan-Hui Li, Chia-Hao Lin, and&nbsp;<u>Kai-Chiang Wu</u>, "NBTI and Leakage Reduction Using ILP-Based Approach,"&nbsp;<em>IEEE Transactions on Very Large Scale Integration Systems</em>, vol. 22, no. 9, pp. 2034-2038, Sep. 2014.</p>
-                    </span></div>
-                <div class="researchs-pub-item"> <i class="fas fa-circle researchs-bullet-icon"><span class="researchs-bullet-icon-marker">
-                        </span></i><span class="cd-paragraph-clean researchs-pub-item__text">
-                        <p>[J02]&nbsp;<u>Kai-Chiang Wu</u>&nbsp;and Diana Marculescu, "Power-Planning-Aware Soft Error Hardening via Selective Voltage Assignment,"&nbsp;<em>IEEE Transactions on Very Large Scale Integration Systems</em>, vol. 22, no. 1, pp. 136-145, Jan. 2014.</p>
-                    </span></div>
-                <div class="researchs-pub-item"> <i class="fas fa-circle researchs-bullet-icon"><span class="researchs-bullet-icon-marker">
-                        </span></i><span class="cd-paragraph-clean researchs-pub-item__text">
-                        <p>[J01]&nbsp;<u>Kai-Chiang Wu</u>&nbsp;and Diana Marculescu, "A Low-Cost, Systematic Methodology for Soft Error Robustness of Logic Circuits,"&nbsp;<em>IEEE Transactions on Very Large Scale Integration Systems</em>, vol. 21, no. 2, pp. 367-379, Feb. 2013.</p>
-                    </span></div>
-            </div>
+            <div id="journalPaperListContainer" class="researchs-pub-list">
+                資料載入中...</div>
         </div>
     </div>
+    <div class="researchs-pub-section">
+        <div class="researchs-pub-header"> <span class="researchs-pub-header__title">
+                <p>Conference Papers</p>
+            </span><span class="researchs-pub-header__subtitle">
+                <p>Representative Research Contributions</p>
+            </span></div>
+        <div class="researchs-pub-columns">
+            <div id="conferencePaperListContainer" class="researchs-pub-list">
+                資料載入中...</div>
+        </div>
+    </div>
+    <script>
+        const RESEARCHS_GAS_URL = 'https://script.google.com/macros/s/AKfycbzYhayj1RoQ2hQtMYNTWCAWSYKWXho88X1W5kCm5HiBdzAyucN2y3z-BalGZFXqZLmo5Q/exec';
+
+        // 依欄位名稱從 GAS 回傳的物件中取值：忽略大小寫、前後空白，並支援多種別名
+        function getField(row, ...aliases) {
+            const normalize = (s) => String(s).trim().toLowerCase().replace(/[\s_]+/g, ' ');
+            const targets = aliases.map(normalize);
+            for (const key of Object.keys(row)) {
+                if (targets.includes(normalize(key))) {
+                    const value = row[key];
+                    if (value !== undefined && value !== null && value !== '') return value;
+                }
+            }
+            return '';
+        }
+
+        // 渲染完成後，用 height + opacity 漸變讓內容平滑展開淡入
+        function revealContainer(container) {
+            if (!container) return;
+            const targetHeight = container.scrollHeight;
+            container.style.overflow = 'hidden';
+            container.style.height = '0px';
+            container.style.opacity = '0';
+            requestAnimationFrame(() => {
+                container.style.transition = 'height 0.6s ease, opacity 0.6s ease';
+                requestAnimationFrame(() => {
+                    container.style.height = targetHeight + 'px';
+                    container.style.opacity = '1';
+                });
+            });
+            container.addEventListener('transitionend', function onEnd(event) {
+                if (event.propertyName !== 'height') return;
+                container.style.height = 'auto';
+                container.style.overflow = '';
+                container.style.transition = '';
+                container.removeEventListener('transitionend', onEnd);
+            });
+        }
+
+        async function renderJournalPaperList() {
+            const container = document.getElementById('journalPaperListContainer');
+
+            try {
+                const response = await fetch(RESEARCHS_GAS_URL + '?sheet=conference_paper_list');
+                const result = await response.json();
+
+                if (result.status === 'success' && result.data.length > 0) {
+                    const htmlString = result.data.map(item => {
+                        const note = getField(item, 'note', '備註');
+                        const authors = getField(item, 'authors', 'author', '作者');
+                        const title = getField(item, 'title', '標題', '論文標題');
+                        const conference = getField(item, 'conference', '研討會', '會議');
+                        const pages = getField(item, 'pages', 'page', '頁碼');
+                        const month = getField(item, 'month', '月', '月份');
+                        const year = getField(item, 'year', '年', '年份');
+                        const url = getField(item, 'url', 'link', '連結');
+
+                        const noteText = note ? `[${note}] ` : '';
+                        const confText = conference ? `<em>${conference}</em>` : '';
+                        const pageText = pages ? `pp. ${pages}` : '';
+                        const dateText = [month, year].filter(Boolean).join(' ');
+
+                        const details = [confText, pageText, dateText].filter(Boolean).join(', ');
+                        const linkText = url ? ` <a href="${url}" target="_blank" rel="noopener noreferrer"><button class="btn btn-primary">[Link]</button></a>` : '';
+
+                        return `
+                        <div class="researchs-pub-item">
+                            <i class="fas fa-circle researchs-bullet-icon"><span class="researchs-bullet-icon-marker"></span></i>
+                            <span class="cd-paragraph-clean researchs-pub-item__text">
+                            <p>${noteText}${authors ? authors + ', ' : ''}"${title}," ${details}.${linkText}</p>
+                            </span>
+                        </div>
+                        `;
+                    }).join('');
+
+                    container.innerHTML = htmlString;
+                } else {
+                    container.innerHTML = '<p>目前試算表中無資料。</p>';
+                }
+            } catch (error) {
+                console.error('抓取失敗：', error);
+                container.innerHTML = '<p>資料載入失敗，請按 F12 開啟控制台 (Console) 查看詳細錯誤。</p>';
+            } finally {
+                revealContainer(container);
+            }
+        }
+
+        async function renderConferencePaperList() {
+            const container = document.getElementById('conferencePaperListContainer');
+
+            try {
+                const response = await fetch(RESEARCHS_GAS_URL + '?sheet=journal_paper_list');
+                const result = await response.json();
+
+                if (result.status === 'success' && result.data.length > 0) {
+                    const htmlString = result.data.map(item => {
+                        const authors = getField(item, 'authors', 'author', '作者');
+                        const title = getField(item, 'title', '標題', '論文標題');
+                        const journal = getField(item, 'journal', '期刊', '期刊名稱');
+                        const volume = getField(item, 'volume', 'vol', '卷');
+                        const issue = getField(item, 'issue', 'no', '期');
+                        const pages = getField(item, 'pages', 'page', '頁碼');
+                        const month = getField(item, 'month', '月', '月份');
+                        const year = getField(item, 'year', '年', '年份');
+                        const link1 = getField(item, 'link1', 'link_1', 'link 1', '連結1', '連結一');
+                        const link2 = getField(item, 'link2', 'link_2', 'link 2', '連結2', '連結二');
+
+                        const journalText = journal ? `<em>${journal}</em>` : '';
+                        const volumeText = volume ? `vol. ${volume}` : '';
+                        const issueText = issue ? `no. ${issue}` : '';
+                        const pageText = pages ? `pp. ${pages}` : '';
+                        const dateText = [month, year].filter(Boolean).join(' ');
+
+                        const details = [journalText, volumeText, issueText, pageText, dateText].filter(Boolean).join(', ');
+                        const link1Text = link1 ? ` <a href="${link1}" target="_blank" rel="noopener noreferrer"><button class="btn btn-primary">[Link1]</button></a>` : '';
+                        const link2Text = link2 ? ` <a href="${link2}" target="_blank" rel="noopener noreferrer"><button class="btn btn-primary">[Link2]</button></a>` : '';
+
+                        return `
+                        <div class="researchs-pub-item">
+                            <i class="fas fa-circle researchs-bullet-icon"><span class="researchs-bullet-icon-marker"></span></i>
+                            <span class="cd-paragraph-clean researchs-pub-item__text">
+                            <p>${authors ? authors + ', ' : ''}"${title}," ${details}.${link1Text}${link2Text}</p>
+                            </span>
+                        </div>
+                        `;
+                    }).join('');
+
+                    container.innerHTML = htmlString;
+                } else {
+                    container.innerHTML = '<p>目前試算表中無資料。</p>';
+                }
+            } catch (error) {
+                console.error('抓取失敗：', error);
+                container.innerHTML = '<p>資料載入失敗，請按 F12 開啟控制台 (Console) 查看詳細錯誤。</p>';
+            } finally {
+                revealContainer(container);
+            }
+        }
+
+        renderJournalPaperList();
+        renderConferencePaperList();
+    </script>
         <footer class="footer">
         <div class="footer__top">
     

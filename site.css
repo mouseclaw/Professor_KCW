@@ -612,7 +612,11 @@
     max-width: 470px;
     position: relative;
 }/* HTMLCode Component Content Resets（導覽列圖示內的 svg / a） */
-.site-nav__toggle-icon img { width: initial; height: initial; -o-object-fit: initial; object-fit: initial; border-radius: initial; display: initial; }.site-nav__toggle-icon span { display: initial; }.site-nav__close-icon img { width: initial; height: initial; -o-object-fit: initial; object-fit: initial; border-radius: initial; display: initial; }.site-nav__close-icon span { display: initial; }/* ============================================================
+.site-nav__toggle-icon img { width: initial; height: initial; -o-object-fit: initial; object-fit: initial; border-radius: initial; display: initial; }.site-nav__toggle-icon span { display: initial; }.site-nav__close-icon img { width: initial; height: initial; -o-object-fit: initial; object-fit: initial; border-radius: initial; display: initial; }.site-nav__close-icon span { display: initial; }/* 手機版選單開啟狀態：蓋過響應式媒體查詢裡的 display:none */
+.site-nav__menu.is-active {
+    display: flex !important;
+}
+/* ============================================================
    Responsive — max-width: 1199px
    ============================================================ */
 @media (max-width:1199px) {

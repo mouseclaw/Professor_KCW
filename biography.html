@@ -446,6 +446,25 @@
                 </nav>
             </header>
         </div>
+
+        <script>
+            (function () {
+                const navToggle = document.querySelector('.site-nav__toggle');
+                const navClose = document.querySelector('.site-nav__close');
+                const navMenu = document.querySelector('.site-nav__menu');
+                if (!navToggle || !navClose || !navMenu) return;
+
+                navToggle.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    navMenu.classList.add('is-active');
+                });
+
+                navClose.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    navMenu.classList.remove('is-active');
+                });
+            })();
+        </script>
     
         <!-- Hero 副標題區塊（原 researchs-e-37 ~ e-41） -->
         <div data-cdhs="up" class="page-hero__content">
@@ -473,7 +492,7 @@
                         <p>Kai-Chiang Wu received the B.S. and M.S. degrees in computer science from National Tsing Hua University (NTHU), Hsinchu, Taiwan, in 2002 and 2004, respectively, and the Ph.D. degree in electrical and computer engineering from Carnegie Mellon University (CMU), Pittsburgh, PA, in 2011. From 2011 to 2013, he was with Intel Corporation, Hillsboro, OR, as a senior software engineer working on the research and development of CAD tools for reliability verification. He is currently an assistant professor in the Department of Computer Science, National Chiao Tung University (NCTU), Hsinchu, Taiwan. His research interests include energy-aware computing, computer-aided design (CAD) for reliability, fault tolerance and error resilience in nanoscale designs, and emerging technologies. He is the principal investigator of a research group, CAD for G(reen)-RE(liable)-A(nd)-T(rustworthy)/GREAT Systems, at NCTU.</p>
                     </span><span class="biography-e-10">
                         <p>Dr. Wu was the recipient of a Best Paper Award from IEEE International Conference on Computer Design (ICCD 2008). In 2011, he was the recipient of Liang Ji-Dian Fellowship, which is annually awarded to two selected outstanding Ph.D. students of Chinese heritage in the College of Engineering, Carnegie Mellon University.</p>
-                    </span></div><span class="biography-e-7"> <img src="assets/img-d0115097.png" alt="" fetchpriority="high" loading="eager"> </span>
+                    </span></div><span class="biography-e-7"> <img style="object-fit: cover;object-position: top;" src="assets/KCW.png" alt="" fetchpriority="high" loading="eager"> </span>
             </div>
         </div>
         <div class="biography-e-265">
@@ -591,7 +610,7 @@
         </div>
         <div class="biography-e-56">
             <div class="biography-e-57"> <span class="biography-e-58">
-                    <p><strong>Journal Articles</strong></p>
+                    <p><strong>Conference Articles</strong></p>
                 </span><span class="biography-e-59">
                     <p>Representative Research Contributions</p>
                 </span></div>
@@ -599,7 +618,20 @@
                 <div id="paperListContainer" class="biography-e-313">
                     資料載入中...</div>
             <script>
-                const GAS_URL = 'https://script.google.com/macros/s/AKfycbz_vLaoNk5UZGxlf_GrKATmIlPp22jxJ9zc73Upp5nxHeh_dy4T9RvK5S0SIY5_nm75kg/exec';
+                const GAS_URL = 'https://script.google.com/macros/s/AKfycbzYhayj1RoQ2hQtMYNTWCAWSYKWXho88X1W5kCm5HiBdzAyucN2y3z-BalGZFXqZLmo5Q/exec';
+
+                // 依欄位名稱從 GAS 回傳的物件中取值：忽略大小寫、前後空白，並支援多種別名
+                function getField(row, ...aliases) {
+                    const normalize = (s) => String(s).trim().toLowerCase().replace(/[\s_]+/g, ' ');
+                    const targets = aliases.map(normalize);
+                    for (const key of Object.keys(row)) {
+                        if (targets.includes(normalize(key))) {
+                            const value = row[key];
+                            if (value !== undefined && value !== null && value !== '') return value;
+                        }
+                    }
+                    return '';
+                }
 
                 // 渲染完成後，用 height + opacity 漸變讓內容平滑展開淡入
                 function revealContainer(container) {
@@ -628,24 +660,33 @@
                 const container = document.getElementById('paperListContainer');
 
                 try {
-                    const response = await fetch(GAS_URL);
+                    const response = await fetch(GAS_URL + '?sheet=conference_paper_list');
                     const result = await response.json();
 
                     if (result.status === 'success' && result.data.length > 0) {
                     const htmlString = result.data.map(item => {
-                        const noteText = item.note ? `[${item.note}] ` : '';
-                        const confText = item.conference ? `<em>${item.conference}</em>` : '';
-                        const pageText = item.pages ? `pp. ${item.pages}` : '';
-                        const dateText = [item.month, item.year].filter(Boolean).join(' ');
+                        const note = getField(item, 'note', '備註');
+                        const authors = getField(item, 'authors', 'author', '作者');
+                        const title = getField(item, 'title', '標題', '論文標題');
+                        const conference = getField(item, 'conference', '研討會', '會議');
+                        const pages = getField(item, 'pages', 'page', '頁碼');
+                        const month = getField(item, 'month', '月', '月份');
+                        const year = getField(item, 'year', '年', '年份');
+                        const url = getField(item, 'url', 'link', '連結');
+
+                        const noteText = note ? `[${note}] ` : '';
+                        const confText = conference ? `<em>${conference}</em>` : '';
+                        const pageText = pages ? `pp. ${pages}` : '';
+                        const dateText = [month, year].filter(Boolean).join(' ');
                         
                         const details = [confText, pageText, dateText].filter(Boolean).join(', ');
-                        const linkText = item.url ? ` <a href="${item.url}" target="_blank" rel="noopener noreferrer"><button class="btn btn-primary">[Link]</button></a>` : '';
+                        const linkText = url ? ` <a href="${url}" target="_blank" rel="noopener noreferrer"><button class="btn btn-primary">[Link]</button></a>` : '';
 
                         return `
                         <div class="biography-e-317">
                             <i class="fas fa-circle biography-e-315"><span class="biography-e-314"></span></i>
                             <span class="cd-paragraph-clean biography-e-316">
-                            <p>${noteText}${item.authors ? item.authors + ', ' : ''}"${item.title || ''}," ${details}.${linkText}</p>
+                            <p>${noteText}${authors ? authors + ', ' : ''}"${title}," ${details}.${linkText}</p>
                             </span>
                         </div>
                         `;
@@ -670,78 +711,70 @@
         </div>
         <div class="biography-e-60">
             <div class="biography-e-61"> <span class="biography-e-62">
-                    <p><strong>Conference Papers</strong></p>
+                    <p><strong>Journal Papers</strong></p>
                 </span><span class="biography-e-63">
                     <p>Representative Research Contributions</p>
                 </span></div>
             <div class="biography-e-366">
-                <div class="biography-e-367">
-                    <div class="biography-e-368"> <i class="fas fa-circle biography-e-369"><span class="biography-e-370">
-                                
-                            </span></i><span class="cd-paragraph-clean biography-e-371">
-                            <p>[J13] Chia-Heng Yen, Chun-Teng Chen, Mason Chern, Ying-Yen Chen, Chun-Yi Kuo, Jih-Nung Lee, Shu-Yi Kao,&nbsp;<u>Kai-Chiang Wu</u>, and Mango Chao, "CNN-based Stochastic Regression for IDDQ Outlier Identification," in preparation,&nbsp;<em>IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems</em>.</p>
-                        </span></div>
-                    <div class="biography-e-404"> <i class="fas fa-circle biography-e-405"><span class="biography-e-406">
-                                
-                            </span></i><span class="cd-paragraph-clean biography-e-407">
-                            <p>[J12] Wei-Tao Huang, Li-An Huang, and&nbsp;<u>Kai-Chiang Wu</u>, "Cost-Effective Timing Speculation for In-Situ Aging Resilience," submitted to&nbsp;<em>ACM Transactions on Design Automation of Electronic Systems</em>.</p>
-                        </span></div>
-                    <div class="biography-e-400"> <i class="fas fa-circle biography-e-401"><span class="biography-e-402">
-                                
-                            </span></i><span class="cd-paragraph-clean biography-e-403">
-                            <p>[J11] Tsung-Kai Su, Wei-Kai Cheng, Cheng-Yueh Chen, Wei-Chun Wang, Yung-Tang Chuang, Guang-Hsun Tan, Hao-Cheng Lin, Cheng-Hung Hou, Ching-Min Liu, Ya-Chu Chang, Jing-Jong Shyue,&nbsp;<u>Kai-Chiang Wu</u>, and Hao-Wu Lin, "Room-Temperature Fabricated Multilevel Non-Volatile Lead-Free Cesium Halide Memristors for Reconfigurable In-Memory Computing," accepted and in press,&nbsp;<em>ACS Nano</em>.</p>
-                        </span></div>
-                    <div class="biography-e-396"> <i class="fas fa-circle biography-e-397"><span class="biography-e-398">
-                                
-                            </span></i><span class="cd-paragraph-clean biography-e-399">
-                            <p>[J10] Yu-Teng Nien,&nbsp;<u>Kai-Chiang Wu</u>, Dong-Zhen Lee, Ying-Yen Chen, Po-Lin Chen, Mason Chern, Jih-Nung Lee, Shu-Yi Kao, and Mango Chao, "Methodology of Generating Timing-Slack-Based Cell-Aware Tests," accepted and in press,&nbsp;<em>IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems</em>.</p>
-                        </span></div>
-                    <div class="biography-e-392"> <i class="fas fa-circle biography-e-393"><span class="biography-e-394">
-                                
-                            </span></i><span class="cd-paragraph-clean biography-e-395">
-                            <p>[J09] Shuo-Wen Chang, Yu-Teng Nien, Yu-Pang Hu,&nbsp;<u>Kai-Chiang Wu</u>, Chi-Chun Wang, Fu-Sheng Huang, Yi-Lun Tang, Yung-Chen Chen, Ming-Chien Chen, and Mango Chao, "Test Methodology for Defect-based Bridge Faults,"&nbsp;<em>IEEE Transactions on Very Large Scale Integration Systems</em>, vol. 30, no. 7, pp. 975-988, July 2022.</p>
-                        </span></div>
-                    <div class="biography-e-388"> <i class="fas fa-circle biography-e-389"><span class="biography-e-390">
-                                
-                            </span></i><span class="cd-paragraph-clean biography-e-391">
-                            <p>[J08] Ning-Chi Huang, Chao-Wei Cheng, and&nbsp;<u>Kai-Chiang Wu</u>, "Timing Variability-Aware Analysis and Optimization for Variable-Latency Designs,"&nbsp;<em>IEEE Transactions on Very Large Scale Integration Systems</em>, vol. 30, no. 1, pp. 81-94, Jan. 2022.</p>
-                        </span></div>
-                    <div class="biography-e-384"> <i class="fas fa-circle biography-e-385"><span class="biography-e-386">
-                                
-                            </span></i><span class="cd-paragraph-clean biography-e-387">
-                            <p>[J07] Li-Wei Chen, Wei-Chun Wang, Shao-Han Ko, Chien-Yu Chen, Chih-Ting Hsu, Fu-Ching Chiao, Tse-Wei Chen,&nbsp;<u>Kai-Chiang Wu</u>, and Hao-Wu Lin, "Highly Uniform All-Vacuum-Deposited Inorganic Perovskite Artificial Synapses for Reservoir Computing,"&nbsp;<em>Advanced Intelligent Systems</em>, vol. 3, no. 1, pp. 1-11, Jan. 2021.</p>
-                        </span></div>
-                    <div class="biography-e-380"> <i class="fas fa-circle biography-e-381"><span class="biography-e-382">
-                                
-                            </span></i><span class="cd-paragraph-clean biography-e-383">
-                            <p>[J06] Tien-Hung Tseng, Chung-Han Chou, and&nbsp;<u>Kai-Chiang Wu</u>, "Making Aging Useful by Recycling Aging-Induced Clock Skew,"&nbsp;<em>ACM Transactions on Design Automation of Electronic Systems</em>, vol. 25, no. 2, pp. 1-24, March 2020.</p>
-                        </span></div>
-                    <div class="biography-e-376"> <i class="fas fa-circle biography-e-377"><span class="biography-e-378">
-                                
-                            </span></i><span class="cd-paragraph-clean biography-e-379">
-                            <p>[J05] Chung-Han Chou, Tsui-Yun Chang,&nbsp;<u>Kai-Chiang Wu</u>, and Shih-Chieh Chang, "Sensor-Based Time Speculation in the Presence of Timing Variability,"&nbsp;<em>IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems</em>, vol. 37, no. 6, pp. 1133-1142, June 2018.</p>
-                        </span></div>
-                    <div class="biography-e-372"> <i class="fas fa-circle biography-e-373"><span class="biography-e-374">
-                                
-                            </span></i><span class="cd-paragraph-clean biography-e-375">
-                            <p>[J04]&nbsp;<u>Kai-Chiang Wu</u>, Ing-Chao Lin, Yao-Te Wang, and Shuen-Shiang Yang, "BTI-Aware Sleep Transistor Sizing Algorithm for Reliable Power Gating Designs,"&nbsp;<em>IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems</em>, vol. 33, no. 10, pp. 1591-1595, Oct. 2014.</p>
-                        </span></div>
-                    <div class="biography-e-416"> <i class="fas fa-circle biography-e-417"><span class="biography-e-418">
-                                
-                            </span></i><span class="cd-paragraph-clean biography-e-419">
-                            <p>[J03] Ing-Chao Lin, Kuan-Hui Li, Chia-Hao Lin, and&nbsp;<u>Kai-Chiang Wu</u>, "NBTI and Leakage Reduction Using ILP-Based Approach,"&nbsp;<em>IEEE Transactions on Very Large Scale Integration Systems</em>, vol. 22, no. 9, pp. 2034-2038, Sep. 2014.</p>
-                        </span></div>
-                    <div class="biography-e-412"> <i class="fas fa-circle biography-e-413"><span class="biography-e-414">
-                                
-                            </span></i><span class="cd-paragraph-clean biography-e-415">
-                            <p>[J02]&nbsp;<u>Kai-Chiang Wu</u>&nbsp;and Diana Marculescu, "Power-Planning-Aware Soft Error Hardening via Selective Voltage Assignment,"&nbsp;<em>IEEE Transactions on Very Large Scale Integration Systems</em>, vol. 22, no. 1, pp. 136-145, Jan. 2014.</p>
-                        </span></div>
-                    <div class="biography-e-408"> <i class="fas fa-circle biography-e-409"><span class="biography-e-410">
-                                
-                            </span></i><span class="cd-paragraph-clean biography-e-411">
-                            <p>[J01]&nbsp;<u>Kai-Chiang Wu</u>&nbsp;and Diana Marculescu, "A Low-Cost, Systematic Methodology for Soft Error Robustness of Logic Circuits,"&nbsp;<em>IEEE Transactions on Very Large Scale Integration Systems</em>, vol. 21, no. 2, pp. 367-379, Feb. 2013.</p>
-                        </span></div>
-                </div>
+                <div id="conferencePaperListContainer" class="biography-e-367">
+                    資料載入中...</div>
+                <script>
+                    const CONFERENCE_PAPER_API_URL = 'https://script.google.com/macros/s/AKfycbzYhayj1RoQ2hQtMYNTWCAWSYKWXho88X1W5kCm5HiBdzAyucN2y3z-BalGZFXqZLmo5Q/exec?sheet=journal_paper_list';
+
+                    async function renderConferencePaperList() {
+                        const container = document.getElementById('conferencePaperListContainer');
+
+                        try {
+                            const response = await fetch(CONFERENCE_PAPER_API_URL);
+                            const result = await response.json();
+
+                            if (result.status === 'success' && result.data.length > 0) {
+                                const htmlString = result.data.map(item => {
+                                    const authors = getField(item, 'authors', 'author', '作者');
+                                    const title = getField(item, 'title', '標題', '論文標題');
+                                    const journal = getField(item, 'journal', '期刊', '期刊名稱');
+                                    const volume = getField(item, 'volume', 'vol', '卷');
+                                    const issue = getField(item, 'issue', 'no', '期');
+                                    const pages = getField(item, 'pages', 'page', '頁碼');
+                                    const month = getField(item, 'month', '月', '月份');
+                                    const year = getField(item, 'year', '年', '年份');
+                                    const link1 = getField(item, 'link1', 'link_1', 'link 1', '連結1', '連結一');
+                                    const link2 = getField(item, 'link2', 'link_2', 'link 2', '連結2', '連結二');
+
+                                    const journalText = journal ? `<em>${journal}</em>` : '';
+                                    const volumeText = volume ? `vol. ${volume}` : '';
+                                    const issueText = issue ? `no. ${issue}` : '';
+                                    const pageText = pages ? `pp. ${pages}` : '';
+                                    const dateText = [month, year].filter(Boolean).join(' ');
+
+                                    const details = [journalText, volumeText, issueText, pageText, dateText].filter(Boolean).join(', ');
+                                    const link1Text = link1 ? ` <a href="${link1}" target="_blank" rel="noopener noreferrer"><button class="btn btn-primary">[Link1]</button></a>` : '';
+                                    const link2Text = link2 ? ` <a href="${link2}" target="_blank" rel="noopener noreferrer"><button class="btn btn-primary">[Link2]</button></a>` : '';
+
+                                    return `
+                                    <div class="biography-e-368">
+                                        <i class="fas fa-circle biography-e-369"><span class="biography-e-370"></span></i>
+                                        <span class="cd-paragraph-clean biography-e-371">
+                                        <p>${authors ? authors + ', ' : ''}"${title}," ${details}.${link1Text}${link2Text}</p>
+                                        </span>
+                                    </div>
+                                    `;
+                                }).join('');
+
+                                container.innerHTML = htmlString;
+                            } else {
+                                container.innerHTML = '<p>目前試算表中無資料。</p>';
+                            }
+                        } catch (error) {
+                            console.error('抓取失敗：', error);
+                            container.innerHTML = '<p>資料載入失敗，請按 F12 開啟控制台 (Console) 查看詳細錯誤。</p>';
+                        } finally {
+                            revealContainer(container);
+                        }
+                    }
+
+                    renderConferencePaperList();
+                </script>
             </div>
         </div>
         <div class="biography-e-92">
