@@ -33,7 +33,7 @@ body._home_container .page-hero {
     border-radius: 10px;
     z-index: 1;
     width: 50%;
-    height: 512px;
+    height: 560px;
     display: flex;
     position: relative;
 }body._home_container .home-hero__media-card {
@@ -86,12 +86,12 @@ body._home_container .page-hero {
     }body._home_container .home-hero__copy, body._home_container .home-hero__media {
         width: 100%;
     }body._home_container .home-hero__media {
-        height: 320px;
+        height: 850px;
     }
 }
 
 @media (max-width: 767px) {body._home_container .home-hero__media {
-        height: 280px;
+        height: 420px;
         padding: 24px;
     }body._home_container .home-hero__media-card {
         flex-direction: column;
@@ -925,7 +925,9 @@ body._home_container .page-hero {
     }.home-highlight-card {
         width: 100%
     }.home-highlight-media {
-        height: 450px
+        aspect-ratio: 1 / 2;
+        height: auto;
+        max-height: none
     }.home-highlight-heading {
         line-height: 34px;
         max-width: none
@@ -1037,7 +1039,11 @@ body._home_container .page-hero {
     }.home-highlight-media {
         -o-object-fit: cover;
            object-fit: cover;
-        height: 300px;
+        width: 100%;
+        max-width: 320px;
+        aspect-ratio: 1 / 2;
+        height: auto;
+        max-height: none;
         position: relative
     }.home-highlight-copy {
         padding: 30px 10px 50px 10px;
