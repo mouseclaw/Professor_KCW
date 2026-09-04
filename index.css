@@ -925,9 +925,8 @@ body._home_container .page-hero {
     }.home-highlight-card {
         width: 100%
     }.home-highlight-media {
-        aspect-ratio: 1 / 2;
-        height: auto;
-        max-height: none
+        height: 350px;
+        max-height: 350px
     }.home-highlight-heading {
         line-height: 34px;
         max-width: none
@@ -1041,9 +1040,8 @@ body._home_container .page-hero {
            object-fit: cover;
         width: 100%;
         max-width: 320px;
-        aspect-ratio: 1 / 2;
-        height: auto;
-        max-height: none;
+        height: 250px;
+        max-height: 250px;
         position: relative
     }.home-highlight-copy {
         padding: 30px 10px 50px 10px;
@@ -1094,11 +1092,13 @@ body._home_container .page-hero {
     }.home-highlight-spotlight__media {
         position: relative
     }.home-highlight-spotlight__body {
+        width: 100%;
         position: relative
     }.home-highlight-spotlight__title {
+        width: 100%;
         font-size: 24px;
         line-height: 34px;
-        text-align: left;
+        text-align: center;
         position: relative
     }.home-highlight-spotlight__text {
         text-align: center;
@@ -1139,6 +1139,8 @@ body._home_container .page-hero {
         position: relative
     }.home-recruitment-cta {
         position: relative
+    }body._home_container .page-hero__content {
+    padding: 10px;
     }
 }/* Resets for HTMLCode component home-highlight-link__arrow */
 .home-highlight-link__arrow img { width: initial; height: initial; -o-object-fit: initial; object-fit: initial; border-radius: initial; display: initial; }.home-highlight-link__arrow span { display: initial; }

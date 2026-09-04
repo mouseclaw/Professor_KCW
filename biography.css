@@ -4876,11 +4876,15 @@
         height: auto
     }.biography-e-12 {
         flex-direction: column;
-        width: 100%
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto
     }.biography-e-13 {
         width: 100%
     }.biography-e-25 {
-        text-align: center
+        text-align: left
+    }.biography-e-15 {
+        padding: 30px 15px 0px 15px
     }.biography-e-44 {
         justify-content: center
     }.biography-e-43 {
@@ -5066,9 +5070,6 @@
         align-items: center
     }.biography-e-298 {
         text-align: center
-    }.biography-e-297 {
-        align-items: center;
-        background-image: linear-gradient(270deg, rgba(0, 0, 0, 0.62) 0%, rgba(0, 0, 0, 0.62) 100%), url(assets/template-asset-6b526c65)
     }.biography-e-294 {
         text-align: center
     }
@@ -5166,12 +5167,15 @@
     }.biography-e-12 {
         flex-direction: column;
         row-gap: 12px;
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
         position: relative
     }.biography-e-13 {
         padding: 20px 15px 0px 15px;
         position: relative
     }.biography-e-25 {
-        text-align: center;
+        text-align: left;
         position: relative
     }.biography-e-14 {
         width: -moz-fit-content;
@@ -5181,28 +5185,28 @@
         padding: 16px 16px 16px 16px;
         position: relative
     }.biography-e-16 {
-        align-items: center;
+        align-items: flex-start;
         position: relative
     }.biography-e-17 {
         position: relative
     }.biography-e-18 {
-        text-align: center;
+        text-align: left;
         position: relative
     }.biography-e-19 {
-        align-items: center;
+        align-items: flex-start;
         position: relative
     }.biography-e-20 {
         position: relative
     }.biography-e-21 {
-        text-align: center;
+        text-align: left;
         position: relative
     }.biography-e-22 {
-        align-items: center;
+        align-items: flex-start;
         position: relative
     }.biography-e-23 {
         position: relative
     }.biography-e-24 {
-        text-align: center;
+        text-align: left;
         margin-top: 20px;
         position: relative
     }.biography-e-44 {
@@ -6021,16 +6025,6 @@
         position: relative
     }.biography-e-288 {
         position: relative
-    }.biography-e-290 {
-        align-items: center;
-        background-image: linear-gradient(270deg, rgba(0, 0, 0, 0.62) 0%, rgba(0, 0, 0, 0.62) 100%), url(assets/template-asset-3c52cc05);
-        background-position: 0% 0%, 50% 50%;
-        background-size: auto auto, cover;
-        background-repeat: no-repeat no-repeat, no-repeat no-repeat;
-        background-attachment: scroll, scroll;
-        background-clip: border-box, border-box;
-        background-origin: padding-box, padding-box;
-        position: relative
     }.biography-e-291 {
         text-align: center;
         position: relative
@@ -6040,16 +6034,6 @@
         position: relative
     }.biography-e-293 {
         position: relative
-    }.biography-e-301 {
-        align-items: center;
-        background-image: linear-gradient(270deg, rgba(0, 0, 0, 0.62) 0%, rgba(0, 0, 0, 0.62) 100%), url(assets/template-asset-bdffc4b5);
-        background-position: 0% 0%, 0% 0%;
-        background-size: auto auto, cover;
-        background-repeat: no-repeat no-repeat, no-repeat no-repeat;
-        background-attachment: scroll, scroll;
-        background-clip: border-box, border-box;
-        background-origin: padding-box, padding-box;
-        position: relative
     }.biography-e-298 {
         text-align: center;
         position: relative
@@ -6058,16 +6042,6 @@
     }.biography-e-303 {
         position: relative
     }.biography-e-300 {
-        position: relative
-    }.biography-e-297 {
-        align-items: center;
-        background-image: linear-gradient(270deg, rgba(0, 0, 0, 0.62) 0%, rgba(0, 0, 0, 0.62) 100%), url(assets/template-asset-6b526c65);
-        background-position: 0% 0%, 0% 0%;
-        background-size: auto auto, cover;
-        background-repeat: no-repeat no-repeat, no-repeat no-repeat;
-        background-attachment: scroll, scroll;
-        background-clip: border-box, border-box;
-        background-origin: padding-box, padding-box;
         position: relative
     }.biography-e-294 {
         text-align: center;

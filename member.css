@@ -372,11 +372,11 @@
     }.member-e-12 {
         text-align: center
     }.member-e-20 {
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
         row-gap: 60px
     }.member-card {
-        max-width: 600px
+        /* max-width: 600px */
     }.member-card__header {
         max-width: none
     }

@@ -286,7 +286,7 @@
         line-height: 45px;
     }
     .footer__list {
-        align-items: center;
+        align-items: flex-start;
     }
     .footer__social-row {
         justify-content: center;
@@ -317,10 +317,12 @@
     .footer__brand-text {
         font-size: 30px;
         line-height: 40px;
+        width: 100%;
+        text-align: center;
         position: relative;
     }
     .footer__col-title {
-        padding: 0px 0px 0px 0px;
+        padding: 0px 0px 20px 0px;
         position: relative;
     }
     .footer__list {
@@ -699,7 +701,7 @@
    ============================================================ */
 @media (max-width:767px) {
     .page-hero {
-        background-image: url(assets/template-asset-51714dbb), url(assets/template-asset-e8704252), url(assets/template-asset-a030a69e), url(assets/template-asset-96aabfdf), url(assets/template-asset-053bb029);
+        background-image: url(assets/bg-line1.svg), url(assets/bg-line2.svg), url(assets/bg-line3.svg), url(assets/bg-line4.svg), url(assets/bg-line5.svg);
         background-position: 0% 0%, 100% 100%, 100% 100%, 0% 0%, 100% 100%;
         background-size: 55% auto, 25% auto, 60% auto, 100% auto, 52% auto;
         background-repeat: no-repeat no-repeat, no-repeat no-repeat, no-repeat no-repeat, no-repeat no-repeat, no-repeat no-repeat;
@@ -732,6 +734,9 @@
         line-height: 40px;
         position: relative;
     }
+    .site-header__brand-cn {
+        display: block;
+    }
     .site-nav__menu {
         padding: 20px 20px 20px 20px;
         flex-direction: column;
@@ -754,7 +759,7 @@
         position: relative;
     }
     .page-hero__content {
-        padding: 60px 10px 100px 10px;
+        padding: 10px;
         flex-direction: column;
         height: -moz-fit-content;
         height: fit-content;
