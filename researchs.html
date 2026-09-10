@@ -592,7 +592,7 @@
 
                 if (result.status === 'success' && result.data.length > 0) {
                     const htmlString = result.data.map(item => {
-                        const note = getField(item, 'note', '備註');
+                        const note = getField(item, 'note', '備註', 'pdf link');
                         const authors = getField(item, 'authors', 'author', '作者');
                         const title = getField(item, 'title', '標題', '論文標題');
                         const conference = getField(item, 'conference', '研討會', '會議');
@@ -608,7 +608,7 @@
 
                         const details = [confText, pageText, dateText].filter(Boolean).join(', ');
                         const linkText = url ? ` <a href="${url}" target="_blank" rel="noopener noreferrer"><button class="btn btn-primary">[Link1]</button></a>` : '';
-                        const noteText = url ? ` <a href="${note}" target="_blank" rel="noopener noreferrer"><button class="btn btn-primary">[Link2]</button></a>` : '';
+                        const noteText = note ? ` <a href="${note}" target="_blank" rel="noopener noreferrer"><button class="btn btn-primary">[Link2]</button></a>` : '';
 
                         return `
                         <div class="researchs-pub-item">
