@@ -674,19 +674,20 @@
                         const year = getField(item, 'year', '年', '年份');
                         const url = getField(item, 'url', 'link', '連結');
 
-                        const noteText = note ? `[${note}] ` : '';
+                        // const noteText = note ? `[${note}] ` : '';
                         const confText = conference ? `<em>${conference}</em>` : '';
                         const pageText = pages ? `pp. ${pages}` : '';
                         const dateText = [month, year].filter(Boolean).join(' ');
                         
                         const details = [confText, pageText, dateText].filter(Boolean).join(', ');
-                        const linkText = url ? ` <a href="${url}" target="_blank" rel="noopener noreferrer"><button class="btn btn-primary">[Link]</button></a>` : '';
+                        const linkText = url ? ` <a href="${url}" target="_blank" rel="noopener noreferrer"><button class="btn btn-primary">[Link1]</button></a>` : '';
+                        const noteText = url ? ` <a href="${note}" target="_blank" rel="noopener noreferrer"><button class="btn btn-primary">[Link2]</button></a>` : '';
 
                         return `
                         <div class="biography-e-317">
                             <i class="fas fa-circle biography-e-315"><span class="biography-e-314"></span></i>
                             <span class="cd-paragraph-clean biography-e-316">
-                            <p>${noteText}${authors ? authors + ', ' : ''}"${title}," ${details}.${linkText}</p>
+                            <p>${authors ? authors + ', ' : ''}"${title}," ${details}.${linkText} ${noteText}</p>
                             </span>
                         </div>
                         `;

@@ -601,19 +601,20 @@
                         const year = getField(item, 'year', '年', '年份');
                         const url = getField(item, 'url', 'link', '連結');
 
-                        const noteText = note ? `[${note}] ` : '';
+                        // const noteText = note ? `[${note}] ` : '';
                         const confText = conference ? `<em>${conference}</em>` : '';
                         const pageText = pages ? `pp. ${pages}` : '';
                         const dateText = [month, year].filter(Boolean).join(' ');
 
                         const details = [confText, pageText, dateText].filter(Boolean).join(', ');
                         const linkText = url ? ` <a href="${url}" target="_blank" rel="noopener noreferrer"><button class="btn btn-primary">[Link]</button></a>` : '';
+                        const noteText = url ? ` <a href="${note}" target="_blank" rel="noopener noreferrer"><button class="btn btn-primary">[Link2]</button></a>` : '';
 
                         return `
                         <div class="researchs-pub-item">
                             <i class="fas fa-circle researchs-bullet-icon"><span class="researchs-bullet-icon-marker"></span></i>
                             <span class="cd-paragraph-clean researchs-pub-item__text">
-                            <p>${noteText}${authors ? authors + ', ' : ''}"${title}," ${details}.${linkText}</p>
+                            <p>${authors ? authors + ', ' : ''}"${title}," ${details}.${linkText}${noteText}</p>
                             </span>
                         </div>
                         `;
