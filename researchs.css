@@ -12,7 +12,87 @@
     margin-right: auto;
     max-width: 1980px;
     position: relative
-}.researchs-hero-grid {
+}.researchs-section-topic-container {
+    padding: 100px 16px 100px 16px;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1;
+    height: auto;
+    width: 100%;
+    display: flex;
+    position: relative;
+}.researchs-title {
+    font-family: var(--vId-font-token-a);
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--vId-23e90005-9d61-4323-8f54-454b206b069a);
+    padding: 0px 0px 20px 0px;
+    text-align: left;
+    line-height: 64px;
+    opacity: 100%;
+    z-index: 1;
+    width: -moz-fit-content;
+    width: fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    display: block;
+    min-height: 10px;
+    min-width: 16px;
+    position: relative;
+    max-width: 700px;
+}.researchs-section-topic-flex {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 10px 20px;
+}.researchs-section-topic {
+    flex-wrap: wrap;
+    justify-content: center;
+    -moz-column-gap: 80px;
+    column-gap: 80px;
+    row-gap: 30px;
+    z-index: 1;
+    margin-left: auto;
+    height: -moz-fit-content;
+    height: fit-content;
+    width: 100%;
+    display: flex;
+    max-width: 1440px;
+    margin-right: auto;
+    position: relative;
+}.topic-card {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    row-gap: 16px;
+    box-shadow: 0px 0px 4px 2px #0000000d;
+    z-index: 1;
+    height: -moz-fit-content;
+    height: fit-content;
+    width: 100%;
+    display: flex;
+    max-width: 300px;
+    position: relative;
+    padding-bottom: 36px;
+    border: 1px solid #eeeeee;
+    border-radius: 8px;
+}.topic-card-title{
+    align-items: flex-start;
+    font-family: var(--vId-font-token-a);
+    font-size: 20px;
+    font-weight: 800;
+    color: #000000;
+    line-height: 30px;
+    width: -moz-fit-content;
+    width: fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    display: inline-block;
+    position: relative;
+}.topic-card img {
+    padding: 12px;
+}
+.researchs-hero-grid {
     padding: 100px 10px 100px 10px;
     flex-direction: row-reverse;
     -moz-column-gap: 30px;
