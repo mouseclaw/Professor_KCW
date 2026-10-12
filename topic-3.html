@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Speculative Decoding | Professor Kai-Chiang Wu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="site.css">
+    <link rel="stylesheet" href="topic.css">
+</head>
+<body class="page-shell">
+    <div class="page-hero topic-hero">
+        <div class="page-shell__inner">
+            <header class="site-header">
+                <nav class="site-nav">
+                    <div class="site-nav__toggle"><div class="site-nav__toggle-icon"><a href="index.html" class="link" target="_self" aria-label="Home"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 32 32"><path fill="#ffffff" d="M3 11v2h26v-2H3zm0 8v2h26v-2H3z"></path></svg></a></div></div>
+                    <span class="site-header__brand"><a href="index.html" class="link" target="_self"><p><strong>Professor</strong></p><p><strong>Kai-Chiang Wu <span class="site-header__brand-cn">吳凱強</span></strong></p></a></span>
+                    <div class="site-nav__menu"><div class="site-nav__close"><div class="site-nav__close-icon"><svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path fill="#ffffff" d="M17.414 16L24 9.414L22.586 8L16 14.586L9.414 8L8 9.414L14.586 16L8 22.586L9.414 24L16 17.414L22.586 24L24 22.586z"></path></svg></div></div><span class="site-nav__link"><a href="index.html" class="link" target="_self"><p>Home</p></a></span><span class="site-nav__link"><a href="researchs.html" class="link" target="_self"><p>Researchs</p></a></span><span class="site-nav__link"><a href="member.html" class="link" target="_self"><p>Members</p></a></span><span class="site-nav__link"><a href="activities.html" class="link" target="_self"><p>Activities</p></a></span></div>
+                    <button class="btn btn-outline"><a href="form.html" class="link" target="_self"><p>Contact Me Now</p></a></button>
+                </nav>
+            </header>
+        </div>
+        <div class="topic-hero__heading"><p class="topic-hero__eyebrow">Research Topic 03</p><h1>Speculative Decoding</h1><p class="topic-hero__subtitle">Breaking the latency wall with innovations in speculative decoding for large language model inference.</p></div>
+    </div>
+    <main class="topic-main">
+        <article class="topic-content">
+            <h2>Overview and Motivation</h2>
+            <p>While Large Language Models (LLMs) have achieved remarkable capabilities, their practical deployment is severely constrained by prohibitive inference latency. This bottleneck is an inherent flaw of standard autoregressive text generation. Because standard generation produces only one token per forward pass, the GPU is left severely underutilized, perpetually stalling as it waits for model weights to load into memory. Ultimately, generation speed is bound by memory bandwidth rather than compute power.</p>
+            <p>Speculative decoding resolves this bottleneck through a "draft and verify" architecture. A highly efficient draft model first generates a sequence of candidate tokens, which the target LLM then verifies in parallel within a single forward pass. By accepting the longest matching prefix, this method directly amortizes memory bandwidth costs over multiple tokens. The result is a substantial acceleration in inference speed without any degradation in output quality, as the final token distribution remains mathematically identical to standard generation.</p>
+            <p>Our research focuses on maximizing the speedups of speculative decoding in practice by addressing the operational extremes of modern inference. Specifically, we center on two foundational axes: memory-tier optimization and long-context scalability. The first involves developing lightweight drafting mechanisms that operate efficiently within constrained hardware budgets, eliminating the high latency penalties of CPU-GPU weight transfers in offloaded architectures. The second focuses on mitigating the memory-bandwidth bottleneck of massive Key-Value (KV) caches during verification, enabling fast, sparse token evaluation over extensive sequence lengths without compromising acceptance rates.</p>
+            <h2>Research Trajectory:</h2>
+            <h3>1. SubSpec: Lossless and Training-Free Acceleration for Offloaded LLMs (NeurIPS 2025)</h3>
+        </article>
+        <figure class="topic-figure"><img src="assets/Speculative-Decoding_img_01.png" alt="Placeholder diagram for speculative decoding research"></figure>
+        <article class="topic-content">
+            <p>Deploying massive Large Language Models (LLMs) on memory-constrained hardware often requires parameter offloading—storing a subset of layers in CPU RAM and swapping them to the GPU during inference. While this circumvents VRAM limits, the PCIe bandwidth bottleneck introduces prohibitive latency. </p>
+            <p>To overcome this, we introduce Substitute Speculative Decoding (SubSpec). SubSpec deploys highly compressed, low-bit quantized "substitute" layers that remain permanently resident on the GPU. This highly aligned draft mechanism rapidly generates a deep token tree, enabling the target model to verify and accept significantly more tokens within a single forward pass, thereby drastically reducing the total number of expensive sequential operations.</p>
+            <h3>Key Contributions</h3>
+            <ul>
+                <li>Training-Free Substitute Drafting: SubSpec eliminates the need to train or align a standalone draft model. By utilizing heavily quantized versions of the offloaded target layers directly on the GPU, it provides a highly accurate draft mechanism without occupying significant VRAM.</li>
+                <li>Shared Key-Value (KV) Cache Architecture: Unlike traditional speculative decoding setups that maintain isolated KV caches for both the draft and target models, SubSpec allows both models to operate on an identical contextual history. The draft passes extend the KV cache, which the target model then efficiently overwrites or validates during verification, cutting memory footprint in half.</li>
+                <li>Draft Probability Sharpening: To improve acceptance rates, SubSpec introduces a probability sharpening technique. This adjusts the output distribution of the draft model to be more peaked, reducing the probability mass of less likely tokens and guiding the target model toward the most optimal generation paths.</li>
+                <li>Significant Real-World Speedups: Evaluated across diverse benchmarks, SubSpec achieves state-of-the-art acceleration for memory-constrained inference. For example, it demonstrates up to a <strong>9.1x speedup</strong> for Qwen2.5 7B (on an 8GB VRAM limit) and an average <strong>12.5x speedup</strong> for Qwen2.5 32B (on a 24GB VRAM limit) compared to baseline offloaded inference.</li>
+            </ul>
+            <h3>2. Dustin: Draft-Augmented Sparse Verification for Efficient Long-Context Generation with Speculative Decoding (ICML 2026)</h3>
+        </article>
+        <figure class="topic-figure"><img src="assets/Speculative-Decoding_img_02.png" alt="Placeholder diagram for speculative decoding research"></figure>
+        <article class="topic-content">
+            <p>As Large Language Models expand their context windows to process tens or hundreds of thousands of tokens, a new inference bottleneck emerges: the Key-Value (KV) cache. In traditional speculative decoding, the verification phase requires fetching the target model's entire KV cache from memory to evaluate the drafted tokens. For ultra-long contexts, the time spent loading this massive cache completely overshadows the computational savings provided by the draft model, severely diminishing the overall speedup.</p>
+            <p>To resolve this, this work introduces Dustin, a draft-augmented sparse verification framework designed specifically for long-context speculative decoding. Rather than naively loading the entire KV cache during verification, Dustin dynamically identifies and retrieves only the subset of tokens most critical for accurate evaluation. By intelligently minimizing the memory overhead of the KV cache without resorting to aggressive, lossy eviction strategies, Dustin restores the high acceleration potential of speculative decoding even at extreme sequence lengths.</p>
+            <h3>Key Contributions</h3>
+            <ul>
+                <li>Draft-Augmented Sparse Verification: Dustin introduces a novel verification pipeline that bypasses the need for full KV cache retrieval. It selectively loads only the necessary historical tokens required to verify the draft proposals, drastically reducing memory bandwidth demands during the target model's forward pass.</li>
+                <li>Dual-Signal Attention Fusion: To precisely determine which tokens are critical, Dustin elegantly blends two complementary signals: the lookahead attention from the draft model (indicating what the model expects to focus on next based on its proposals) and the historical attention from the target model (indicating what was recently important).</li>
+                <li>Low-Overhead Dynamic Selection: Standard dynamic KV selection is computationally expensive and can introduce its own latency delays. Dustin leverages the already-computed draft attention states to guide the selection process, minimizing computational overhead and ensuring that the sparse verification remains highly efficient.</li>
+                <li>Robust Long-Context Acceleration: Dustin ensures speculative decoding remains viable at scale by achieving up to a <strong>2.3x speedup</strong> on 128k-context Llama-3-8B and a <strong>2.1x speedup</strong> on 128k-context Qwen2-7B in multi-batch settings, maintaining negligible deviation from accuracy across downstream benchmarks.</li>
+            </ul>
+        </article>
+        <a class="topic-back-link" href="researchs.html">Back to Researchs</a>
+    </main>
+    <footer class="footer">
+        <div class="footer__top">
+            <div class="footer__col footer__col--brand"><span class="footer__brand-text"><a href="index.html" class="link"><p>Professor</p><p><strong>Kai-Chiang Wu</strong></p></a></span></div>
+            <div class="footer__col footer__col--menu"><span class="footer__col-title"><p>MENU</p></span><div class="footer__list"><span class="footer__link"><a href="index.html" class="link"><p>Home</p></a></span><span class="footer__link"><a href="biography.html" class="link"><p>Biography</p></a></span><span class="footer__link"><a href="member.html" class="link"><p>Members</p></a></span><span class="footer__link"><a href="researchs.html" class="link"><p>Researchs</p></a></span><span class="footer__link"><a href="activities.html" class="link"><p>Activities</p></a></span><span class="footer__link"><a href="form.html" class="link"><p>Contact</p></a></span></div></div>
+            <div class="footer__col footer__col--external"><span class="footer__col-title"><p>EXTERNAL</p></span><div class="footer__list"><span class="footer__link"><a href="https://www.nycu.edu.tw/nycu/ch/index" class="link" target="_blank" rel="noopener noreferrer"><p>National Yang Ming Chiao Tung University</p></a></span><span class="footer__link"><a href="https://www.cs.nycu.edu.tw/" class="link" target="_blank" rel="noopener noreferrer"><p>Department of Computer Science</p></a></span></div></div>
+            <div class="footer__col footer__col--social"><span class="footer__col-title"><p>CONTACT</p></span><div class="footer__list"><span class="footer__link"><a href="mailto:kcw@cs.nycu.edu.tw" class="link"><p>kcw@cs.nycu.edu.tw</p></a></span></div></div>
+        </div>
+        <div class="footer__divider"></div><div class="footer__bottom"><span class="footer__copyright"><p>©2026 Kai-Chiang Wu. All rights reserved.</p></span><div class="footer__legal"><span class="footer__legal-link"><p>Terms of Use</p></span></div></div>
+    </footer>
+    <script>
+        (function () {
+            const navToggle = document.querySelector('.site-nav__toggle');
+            const navClose = document.querySelector('.site-nav__close');
+            const navMenu = document.querySelector('.site-nav__menu');
+            if (!navToggle || !navClose || !navMenu) return;
+            navToggle.addEventListener('click', function (event) {
+                event.preventDefault();
+                navMenu.classList.add('is-active');
+            });
+            navClose.addEventListener('click', function (event) {
+                event.preventDefault();
+                navMenu.classList.remove('is-active');
+            });
+        })();
+    </script>
+</body>
+</html>

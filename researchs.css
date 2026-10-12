@@ -92,6 +92,23 @@
 }.topic-card img {
     padding: 12px;
 }
+.topic-card-link {
+    display: flex;
+    width: 100%;
+    max-width: 300px;
+    color: inherit;
+    text-decoration: none;
+}
+.topic-card-link:focus-visible {
+    outline: 3px solid var(--color-primary);
+    outline-offset: 4px;
+}
+.topic-card p {
+    padding: 0 1rem;
+    text-align: center;
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
 .researchs-hero-grid {
     padding: 100px 10px 100px 10px;
     flex-direction: row-reverse;

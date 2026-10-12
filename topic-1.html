@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>LLM Compression | Professor Kai-Chiang Wu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="site.css">
+    <link rel="stylesheet" href="topic.css">
+</head>
+<body class="page-shell">
+    <div class="page-hero topic-hero">
+        <div class="page-shell__inner">
+            <header class="site-header">
+                <nav class="site-nav">
+                    <div class="site-nav__toggle">
+                        <div class="site-nav__toggle-icon">
+                            <a href="index.html" class="link" target="_self" aria-label="Home">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 32 32"><path fill="#ffffff" d="M3 11v2h26v-2H3zm0 8v2h26v-2H3z"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+                    <span class="site-header__brand">
+                        <a href="index.html" class="link" target="_self">
+                            <p><strong>Professor</strong></p>
+                            <p><strong>Kai-Chiang Wu <span class="site-header__brand-cn">吳凱強</span></strong></p>
+                        </a>
+                    </span>
+                    <div class="site-nav__menu">
+                        <div class="site-nav__close">
+                            <div class="site-nav__close-icon">
+                                <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path fill="#ffffff" d="M17.414 16L24 9.414L22.586 8L16 14.586L9.414 8L8 9.414L14.586 16L8 22.586L9.414 24L16 17.414L22.586 24L24 22.586z"></path></svg>
+                            </div>
+                        </div>
+                        <span class="site-nav__link"><a href="index.html" class="link" target="_self"><p>Home</p></a></span>
+                        <span class="site-nav__link"><a href="researchs.html" class="link" target="_self"><p>Researchs</p></a></span>
+                        <span class="site-nav__link"><a href="member.html" class="link" target="_self"><p>Members</p></a></span>
+                        <span class="site-nav__link"><a href="activities.html" class="link" target="_self"><p>Activities</p></a></span>
+                    </div>
+                    <button class="btn btn-outline"><a href="form.html" class="link" target="_self"><p>Contact Me Now</p></a></button>
+                </nav>
+            </header>
+        </div>
+        <div class="topic-hero__heading">
+            <p class="topic-hero__eyebrow">Research Topic 01</p>
+            <h1>LLM Compression</h1>
+            <p class="topic-hero__subtitle">Efficient large language model deployment through model compression and hardware-aware optimization.</p>
+        </div>
+    </div>
+    <main class="topic-main">
+        <article class="topic-content">
+            <h2>Research Overview</h2>
+            <p>Detailed research content for LLM compression will be added here. This section can describe the methods, system design, evaluation results, and related publications.</p>
+            <p>Model compression aims to reduce storage and computation demands while preserving the capabilities needed for practical inference.</p>
+        </article>
+        <figure class="topic-figure">
+            <img src="https://placehold.co/1200x675?text=LLM+Compression" alt="Placeholder diagram for LLM compression research">
+            <figcaption>Research illustration placeholder</figcaption>
+        </figure>
+        <a class="topic-back-link" href="researchs.html">Back to Researchs</a>
+    </main>
+    <footer class="footer">
+        <div class="footer__top">
+            <div class="footer__col footer__col--brand"><span class="footer__brand-text"><a href="index.html" class="link"><p>Professor</p><p><strong>Kai-Chiang Wu</strong></p></a></span></div>
+            <div class="footer__col footer__col--menu"><span class="footer__col-title"><p>MENU</p></span><div class="footer__list"><span class="footer__link"><a href="index.html" class="link"><p>Home</p></a></span><span class="footer__link"><a href="biography.html" class="link"><p>Biography</p></a></span><span class="footer__link"><a href="member.html" class="link"><p>Members</p></a></span><span class="footer__link"><a href="researchs.html" class="link"><p>Researchs</p></a></span><span class="footer__link"><a href="activities.html" class="link"><p>Activities</p></a></span><span class="footer__link"><a href="form.html" class="link"><p>Contact</p></a></span></div></div>
+            <div class="footer__col footer__col--external"><span class="footer__col-title"><p>EXTERNAL</p></span><div class="footer__list"><span class="footer__link"><a href="https://www.nycu.edu.tw/nycu/ch/index" class="link" target="_blank" rel="noopener noreferrer"><p>National Yang Ming Chiao Tung University</p></a></span><span class="footer__link"><a href="https://www.cs.nycu.edu.tw/" class="link" target="_blank" rel="noopener noreferrer"><p>Department of Computer Science</p></a></span></div></div>
+            <div class="footer__col footer__col--social"><span class="footer__col-title"><p>CONTACT</p></span><div class="footer__list"><span class="footer__link"><a href="mailto:kcw@cs.nycu.edu.tw" class="link"><p>kcw@cs.nycu.edu.tw</p></a></span></div></div>
+        </div>
+        <div class="footer__divider"></div>
+        <div class="footer__bottom"><span class="footer__copyright"><p>©2026 Kai-Chiang Wu. All rights reserved.</p></span><div class="footer__legal"><span class="footer__legal-link"><p>Terms of Use</p></span></div></div>
+    </footer>
+    <script>
+        (function () {
+            const navToggle = document.querySelector('.site-nav__toggle');
+            const navClose = document.querySelector('.site-nav__close');
+            const navMenu = document.querySelector('.site-nav__menu');
+            if (!navToggle || !navClose || !navMenu) return;
+            navToggle.addEventListener('click', function (event) {
+                event.preventDefault();
+                navMenu.classList.add('is-active');
+            });
+            navClose.addEventListener('click', function (event) {
+                event.preventDefault();
+                navMenu.classList.remove('is-active');
+            });
+        })();
+    </script>
+</body>
+</html>

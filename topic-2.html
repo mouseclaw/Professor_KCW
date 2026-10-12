@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>KV-Cache Compression | Professor Kai-Chiang Wu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="site.css">
+    <link rel="stylesheet" href="topic.css">
+</head>
+<body class="page-shell">
+    <div class="page-hero topic-hero">
+        <div class="page-shell__inner">
+            <header class="site-header">
+                <nav class="site-nav">
+                    <div class="site-nav__toggle"><div class="site-nav__toggle-icon"><a href="index.html" class="link" target="_self" aria-label="Home"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 32 32"><path fill="#ffffff" d="M3 11v2h26v-2H3zm0 8v2h26v-2H3z"></path></svg></a></div></div>
+                    <span class="site-header__brand"><a href="index.html" class="link" target="_self"><p><strong>Professor</strong></p><p><strong>Kai-Chiang Wu <span class="site-header__brand-cn">吳凱強</span></strong></p></a></span>
+                    <div class="site-nav__menu"><div class="site-nav__close"><div class="site-nav__close-icon"><svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path fill="#ffffff" d="M17.414 16L24 9.414L22.586 8L16 14.586L9.414 8L8 9.414L14.586 16L8 22.586L9.414 24L16 17.414L22.586 24L24 22.586z"></path></svg></div></div><span class="site-nav__link"><a href="index.html" class="link" target="_self"><p>Home</p></a></span><span class="site-nav__link"><a href="researchs.html" class="link" target="_self"><p>Researchs</p></a></span><span class="site-nav__link"><a href="member.html" class="link" target="_self"><p>Members</p></a></span><span class="site-nav__link"><a href="activities.html" class="link" target="_self"><p>Activities</p></a></span></div>
+                    <button class="btn btn-outline"><a href="form.html" class="link" target="_self"><p>Contact Me Now</p></a></button>
+                </nav>
+            </header>
+        </div>
+        <div class="topic-hero__heading"><p class="topic-hero__eyebrow">Research Topic 02</p><h1>KV-Cache Compression</h1><p class="topic-hero__subtitle">Low-rank KV-cache compression and system co-design for efficient large language model inference.</p></div>
+    </div>
+    <main class="topic-main">
+        <article class="topic-content">
+            <h2>Overview and Motivation</h2>
+            <p>As large language models (LLMs) support increasingly long context windows, memory capacity and memory bandwidth have become critical bottlenecks in inference. In particular, the Key-Value Cache (KV-Cache) grows with the context length, imposing substantial memory overhead and limiting the batch size and throughput of LLM serving systems.</p>
+            <p>Existing post-training approaches, such as token eviction and low-bit quantization, primarily address KV-Cache redundancy through token selection or numerical representation. However, these methods do not fully exploit the underlying structural redundancy in the cached representations. This motivates our investigation of low-rank approximation and system-algorithm co-design as complementary approaches to KV-Cache compression.</p>
+            <p>Our research explores this problem from two perspectives: intra-layer representation compression and inter-layer structural redundancy. We first investigate low-rank projections within individual layers and subsequently extend the analysis to geometric alignment across layers. Based on these observations, we develop training-free, post-training compression frameworks that reduce KV-Cache memory requirements while improving inference efficiency through system-level optimizations.</p>
+            <h2>Research Trajectory: From Intra-Layer to Inter-Layer Low-Rank Compression</h2>
+            <h3>1. Palu: Exploiting Redundancy in the Hidden Dimension (ICLR 2025)</h3>
+        </article>
+        <figure class="topic-figure"><img src="assets/KV-Cache_img_01.png" alt="Placeholder diagram for KV-cache compression research"></figure>
+        <br>
+        <article class="topic-content">
+            <p>Although low-rank decomposition can reduce the dimensionality of KV representations, performing dynamic decomposition on activations during inference introduces additional computational overhead. A key challenge is therefore to obtain the benefits of low-rank representations without substantially increasing runtime costs.</p>
+            <h3>Key Contributions.</h3>
+            <ul>
+                <li>Static Matrix Factorization: Palu factorizes the projection weights offline, allowing the model to store compact latent representations during inference and reconstruct the original representations when needed. This design avoids the runtime cost of performing low-rank decomposition directly on activations.</li>
+                <li>Group-Head Low-Rank Decomposition (G-LRD): We propose a group-head decomposition strategy that balances the efficiency of independently factorizing attention heads with the representational capacity of jointly modeling multiple heads. This approach provides a practical trade-off between compression efficiency and reconstruction quality.</li>
+                <li>System and Quantization Co-Design: We integrate Hadamard rotations into the compression pipeline to mitigate outliers associated with low-rank representations, while maintaining low runtime overhead. In addition, fused Triton/CUDA kernels are developed to improve execution efficiency. Together, these optimizations achieve attention speedups of up to 1.89x - 2.91x under the evaluated configurations.</li>
+            </ul>
+            <h3>2. xKV: Exploiting Cross-Layer Geometric Alignment (ICML 2026)</h3>
+        </article>
+        <figure class="topic-figure"><img src="assets/KV-Cache_img_02.png" alt="Placeholder diagram for KV-cache compression research"></figure>
+        <br>
+        <article class="topic-content">
+            <p>While intra-layer compression reduces redundancy within individual attention layers, it does not directly address potential redundancy across layers. Existing cross-layer KV-Cache sharing approaches may require substantial model retraining or rely on token-level similarity measures that do not adequately capture the underlying structure of layer representations.</p>
+            <h3>Key Contributions.</h3>
+            <ul>
+                <li>Geometric Analysis through Centered Kernel Alignment (CKA): We use Centered Kernel Alignment (CKA) to investigate the relationship between KV representations across layers. Our analysis suggests that, although token representations vary across layers, their dominant singular-vector subspaces exhibit substantial alignment. This observation provides a basis for exploring shared representations across layers.</li>
+                <li>Cross-Layer Factorization (CLF): Based on the observed geometric alignment, we introduce a factorization method that extracts a shared token basis across adjacent layers. By reducing the need to store separate representations for each layer, the proposed approach achieves up to 8x KV-Cache compression, with less than 3% accuracy degradation on the evaluated long-context benchmarks.</li>
+                <li>Selective Reconstruction (SR): To address the computational overhead of reconstructing compressed representations, we develop a query-dependent selective reconstruction mechanism. During decoding, the method reconstructs only the token rows required for attention computation on the GPU. This design reduces the dependence on PCIe-based data movement and achieves up to 4.23x end-to-end decoding throughput acceleration in the evaluated settings.</li>
+            </ul>
+            <h1>Selected Publications</h1>
+            <h2>Palu: KV-Cache Compression with Low-Rank Projection</h2>
+            <p>Chi-Chih Chang, Wei-Cheng Lin, Chien-Yu Lin, Chong-Yan Chen, Yu-Fang Hu, Pei-Shuo Wang, Ning-Chi Huang, Luis Ceze, Mohamed S. Abdelfattah, Kai-Chiang Wu</p>
+            <p>International Conference on Learning Representations (ICLR), 2025 (<a href="https://arxiv.org/abs/2407.21118" target="_blank" rel="noopener noreferrer">Paper</a> | <a href="https://github.com/shadowpa0327/Palu" target="_blank" rel="noopener noreferrer">Code</a>)</p>
+        </article>
+        <article class="topic-content">
+            <h2>xKV: Cross-Layer KV-Cache Compression via Aligned Singular Vector Extraction</h2>
+            <p>Chi-Chih Chang, Wei-Cheng Lin, Chien-Yu Lin, Hung-Yueh Chiang, Yash Akhauri, Xilai Dai, Huiqiang Jiang, Yucheng Li, Luis Ceze, Kai-Chiang Wu, Mohamed Abdelfattah</p>
+            <p>International Conference on Machine Learning (ICML), 2026  (<a href="https://arxiv.org/abs/2407.21118" target="_blank" rel="noopener noreferrer">Paper</a> | <a href="https://github.com/abdelfattah-lab/xKV" target="_blank" rel="noopener noreferrer">Code</a>)</p>
+        </article>
+        <a class="topic-back-link" href="researchs.html">Back to Researchs</a>
+    </main>
+    <footer class="footer">
+        <div class="footer__top">
+            <div class="footer__col footer__col--brand"><span class="footer__brand-text"><a href="index.html" class="link"><p>Professor</p><p><strong>Kai-Chiang Wu</strong></p></a></span></div>
+            <div class="footer__col footer__col--menu"><span class="footer__col-title"><p>MENU</p></span><div class="footer__list"><span class="footer__link"><a href="index.html" class="link"><p>Home</p></a></span><span class="footer__link"><a href="biography.html" class="link"><p>Biography</p></a></span><span class="footer__link"><a href="member.html" class="link"><p>Members</p></a></span><span class="footer__link"><a href="researchs.html" class="link"><p>Researchs</p></a></span><span class="footer__link"><a href="activities.html" class="link"><p>Activities</p></a></span><span class="footer__link"><a href="form.html" class="link"><p>Contact</p></a></span></div></div>
+            <div class="footer__col footer__col--external"><span class="footer__col-title"><p>EXTERNAL</p></span><div class="footer__list"><span class="footer__link"><a href="https://www.nycu.edu.tw/nycu/ch/index" class="link" target="_blank" rel="noopener noreferrer"><p>National Yang Ming Chiao Tung University</p></a></span><span class="footer__link"><a href="https://www.cs.nycu.edu.tw/" class="link" target="_blank" rel="noopener noreferrer"><p>Department of Computer Science</p></a></span></div></div>
+            <div class="footer__col footer__col--social"><span class="footer__col-title"><p>CONTACT</p></span><div class="footer__list"><span class="footer__link"><a href="mailto:kcw@cs.nycu.edu.tw" class="link"><p>kcw@cs.nycu.edu.tw</p></a></span></div></div>
+        </div>
+        <div class="footer__divider"></div><div class="footer__bottom"><span class="footer__copyright"><p>©2026 Kai-Chiang Wu. All rights reserved.</p></span><div class="footer__legal"><span class="footer__legal-link"><p>Terms of Use</p></span></div></div>
+    </footer>
+    <script>
+        (function () {
+            const navToggle = document.querySelector('.site-nav__toggle');
+            const navClose = document.querySelector('.site-nav__close');
+            const navMenu = document.querySelector('.site-nav__menu');
+            if (!navToggle || !navClose || !navMenu) return;
+            navToggle.addEventListener('click', function (event) {
+                event.preventDefault();
+                navMenu.classList.add('is-active');
+            });
+            navClose.addEventListener('click', function (event) {
+                event.preventDefault();
+                navMenu.classList.remove('is-active');
+            });
+        })();
+    </script>
+</body>
+</html>

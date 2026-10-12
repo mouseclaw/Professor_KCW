@@ -1,0 +1,105 @@
+:root {
+    --vId-color-token-a: #456CC6;
+    --vId-color-token-b: #EEC151;
+    --vId-color-token-c: #2C3E91;
+    --vId-color-token-d: #fff;
+    --vId-23e90005-9d61-4323-8f54-454b206b069a: #111;
+    --vId-font-token-a: Manrope;
+    --vId-font-token-b: "Roboto Slab";
+    --vId-5b8c3e21-dd6f-4d22-88c3-365942c990b6: #4a4a4a;
+}
+.topic-hero {
+    height: auto;
+    min-height: 390px;
+    padding-bottom: 48px;
+}
+.topic-hero__heading {
+    width: 100%;
+    max-width: 1170px;
+    margin: auto;
+    padding: 60px 16px 30px;
+    color: #fff;
+}
+.topic-hero__eyebrow {
+    margin: 0 0 12px;
+    color: var(--color-accent);
+    font-family: var(--font-heading);
+    font-weight: 700;
+}
+.topic-hero__heading h1 {
+    margin: 0 0 16px;
+    font-family: var(--font-heading);
+    font-size: 44px;
+    line-height: 1.2;
+}
+.topic-hero__subtitle {
+    max-width: 760px;
+    margin: 0;
+    font-size: 18px;
+    line-height: 1.7;
+}
+.topic-main {
+    width: min(100% - 32px, 1000px);
+    margin: 0 auto;
+    padding: 72px 0 96px;
+}
+.topic-content {
+    margin-bottom: 48px;
+}
+.topic-content h2 {
+    margin: 0 0 16px;
+    font-family: var(--font-heading);
+    font-size: 28px;
+}
+.topic-content p {
+    margin: 0 0 16px;
+    color: var(--color-muted);
+    line-height: 1.8;
+}
+.topic-content p a {
+    color: var(--color-primary);
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
+}
+.topic-figure {
+    margin: 0;
+}
+.topic-figure img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+.topic-figure figcaption {
+    margin-top: 10px;
+    color: var(--color-muted);
+    font-size: 14px;
+}
+.topic-back-link {
+    display: inline-flex;
+    margin-top: 40px;
+    color: var(--color-primary-dark);
+    font-family: var(--font-heading);
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+@media (max-width: 767px) {
+    .topic-hero {
+        min-height: 320px;
+        padding-bottom: 24px;
+    }
+    .topic-hero__heading {
+        padding-top: 32px;
+    }
+    .topic-hero__heading h1 {
+        font-size: 34px;
+    }
+    .topic-hero__subtitle {
+        font-size: 16px;
+    }
+    .topic-main {
+        padding-top: 48px;
+        padding-bottom: 64px;
+    }
+}
